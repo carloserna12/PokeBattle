@@ -1,0 +1,43 @@
+{% extends 'social/layout.html'%}
+{% load static %}
+{% block content %}
+<link href='https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap' rel='stylesheet'>
+<link href="{% static '/styles.css' %}" rel="stylesheet" />
+{% if poke_data %}
+    <center>    
+        <div id="contenedor">
+            <div id="contenidos">
+                {% for poke_data in poke_data %}
+                    <div class="poke-card">
+                        <div  class="img-container">
+                            <img  class="poke-img" src={{poke_data.sprites}}>
+                        </div>
+                        <div>{{ poke_data.name}}</div>
+                        <div>ID:{{poke_data.id}}</div>
+                        <div>{{poke_data.types}}</div> 
+                        <div>{{poke_data.types2}}</div>
+                    </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </center>
+    <center>    
+        <div id="contenedor">
+            <div id="contenidos">
+                {% for poke_data2 in poke_data2 %}
+                    <div class="poke-card">
+                        <div  class="img-container"><img  class="poke-img" src={{poke_data2.sprites}}></div>
+                        <div>{{ poke_data2.name}}</div>
+                        <div>ID:{{poke_data2.id}}</div>
+                        <div>{{poke_data2.types}}</div>
+                        <div>{{poke_data2.types2}}</div>
+                    </div>
+            {% endfor %}
+            </div>
+        </div>
+    </center>
+
+{% endif %}
+
+{% endblock %}

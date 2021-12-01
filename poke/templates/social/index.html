@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+{% extends 'social/layout.html'%}
+{% block content %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokedexPorn</title>
+    <link href='https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap' rel='stylesheet'>
+    <script type="text/javascript" src="{% static 'script.js' %}"  defer></script>
+
+    <link href="{% static '/styles.css' %}" rel="stylesheet" />
+
+</head>
+<body>
+
+    <center>
+        <button  action="" onclick="searchPokemon(event);searchPokemonPikachu(event)">
+            Generar Equipo
+        </button>
+    </center>
+
+    <center>
+        <div id="contenedor">
+            <div id="contenidos">
+                <!-- Separadores -->
+                <div data-poke-card-pikachu class="poke-card">
+                    <div data-poke-name-pikachu>Pokedex</div>
+                    <div data-poke-img-container-pikachu class="img-container">
+                        <img data-poke-img-pikachu class="poke-img" src="/static/poke-shadow.png"/>
+                    </div>
+                    <div data-poke-id-pikachu></div>
+                    <div data-poke-types-pikachu class="poke-types"></div>
+                    <div data-poke-types-pikachu2 class="poke-types"></div>
+                </div>
+                <!-- Separadores -->
+                <div data-poke-card class="poke-card">
+                    <div data-poke-name>Pokedex</div>
+                    <div data-poke-img-container class="img-container">
+                        <img data-poke-img class="poke-img" src="/static/poke-shadow.png"/>
+                    </div>
+                    <div data-poke-id></div>
+                    <div data-poke-types class="poke-types"></div>
+                    <div data-poke-types11 class="poke-types"></div>
+             
+                </div>
+                <!-- Separadores -->
+                <div data-poke-card-pikachu class="poke-card">
+                    <div data-poke-name-pikachu>Pokedex</div>
+                    <div data-poke-img-container-pikachu class="img-container">
+                        <img data-poke-img-pikachu class="poke-img" src="/static/poke-shadow.png"/>
+                    </div>
+                    <div data-poke-id-pikachu></div>
+                    <div data-poke-types-pikachu class="poke-types"></div>
+                    <div data-poke-types-pikachu2 class="poke-types"></div>
+                </div>
+            </div>
+            <div id="contenidos">
+                <!-- Separadores -->
+                <div data-poke-card-pikachu class="poke-card">
+                    <div data-poke-name-pikachu>Pokedex</div>
+                    <div data-poke-img-container-pikachu class="img-container">
+                        <img data-poke-img-pikachu class="poke-img" src="/static/poke-shadow.png"/>
+                    </div>
+                    <div data-poke-id-pikachu></div>
+                    <div data-poke-types-pikachu class="poke-types"></div>
+                    <div data-poke-types-pikachu2 class="poke-types"></div>
+                </div>
+                <!-- Separadores -->
+                <div data-poke-card-pikachu class="poke-card">
+                    <div data-poke-name-pikachu>Pokedex</div>
+                    <div data-poke-img-container-pikachu class="img-container">
+                        <img data-poke-img-pikachu class="poke-img" src="/static/poke-shadow.png"/>
+                    </div>
+                    <div data-poke-id-pikachu></div>
+                    <div data-poke-types-pikachu class="poke-types"></div>
+                    <div data-poke-types-pikachu2 class="poke-types"></div>
+                </div>
+
+               <!-- Separadores -->
+                <div data-poke-card-pikachu class="poke-card">
+                    <div data-poke-name-pikachu>Pokedex</div>
+                    <div data-poke-img-container-pikachu class="img-container">
+                        <img data-poke-img-pikachu class="poke-img" src="/static/poke-shadow.png"/>
+                    </div>
+                    <div data-poke-id-pikachu></div>
+                    <div data-poke-types-pikachu class="poke-types"></div>
+                    <div data-poke-types-pikachu2 class="poke-types"></div>
+                </div>
+            </div>
+        </div>
+    </center>
+    <script type="text/javascript">searchPokemon();</script>    
+</body>
+</html>
+{% endblock %}
