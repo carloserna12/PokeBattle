@@ -38,10 +38,11 @@ input {
 
 
 
-.img-container {
+.img-container  {
     position: relative;
     width: 180px;
     margin: 10px auto;
+    
 }
 
 .poke-stats div {
@@ -62,6 +63,8 @@ input {
 .poke-img {
     width: 180px;
     border-radius: 50%;
+
+    
 }
 
 #contenedor {
