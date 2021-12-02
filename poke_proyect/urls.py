@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from poke.views import index, nuevo
+from poke.views import index, team
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('poke.urls')),
     path('index/',index),
-    path('nuevo/',nuevo),
+    path('GenerarTeam/',team),
 
     
 ]

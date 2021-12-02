@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default='batman.png')
+    image = models.ImageField(default='defectimg.png')
     equip = models.CharField(max_length=1500,default=0)
     pokemon1 = models.CharField(max_length=1500,default=0)
     pokemon2 = models.CharField(max_length=1500,default=0)
@@ -14,6 +14,13 @@ class Profile(models.Model):
     pokemon4 = models.CharField(max_length=1500,default=0)
     pokemon5 = models.CharField(max_length=1500,default=0)
     pokemon6 = models.CharField(max_length=1500,default=0)
+
+    image_pokemon1 = models.CharField(max_length=1500,default=0)
+    image_pokemon2 = models.CharField(max_length=1500,default=0)
+    image_pokemon3 = models.CharField(max_length=1500,default=0)
+    image_pokemon4 = models.CharField(max_length=1500,default=0)
+    image_pokemon5 = models.CharField(max_length=1500,default=0)
+    image_pokemon6 = models.CharField(max_length=1500,default=0)
     
 
     def __str__(self) -> str:

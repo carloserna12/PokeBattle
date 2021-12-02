@@ -83,3 +83,8 @@ input {
     vertical-align: middle;
     padding: 10px;
 }
+
+.team-view {
+    position: relative;
+    float: left;
+}
