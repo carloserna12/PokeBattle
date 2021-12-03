@@ -33,7 +33,20 @@ def extraer_de_api(request):
         response = requests.get(url)
         content = response.json()
     
-
+        if Contador == 2:
+            query.pokemon2 = url
+            query.image_pokemon2 = content['sprites']['front_default']
+            query.save()
+            Contador= Contador + 1
+        elif Contador == 3:
+            query.pokemon3 = url
+            query.image_pokemon3 = content['sprites']['front_default']
+            query.save()
+            Contador= Contador + 1
+        else:
+            query.pokemon4 = url
+            query.image_pokemon4 = content['sprites']['front_default']
+            query.save()
             
         
         ############################################
@@ -58,31 +71,16 @@ def extraer_de_api(request):
             poke_data.append(single_poke)
 
 
-        if Contador == 2:
-            query.pokemon2 = url
-            query.image_pokemon2 = content['sprites']['front_default']
-            query.save()
-            Contador= Contador + 1
-        elif Contador == 3:
-            query.pokemon3 = url
-            query.image_pokemon3 = content['sprites']['front_default']
-            query.save()
-            Contador= Contador + 1
-        else:
-            query.pokemon4 = url
-            query.image_pokemon4 = content['sprites']['front_default']
-            query.save()
+
 
     for i in range(3):
         get_poke2 = "https://pokeapi.co/api/v2/pokemon/"
-        poke2 = random.randint(1, 1282)
+        poke2 = random.randint(1, 1200)
         url2 = get_poke2 + str(poke2)
         response2 = requests.get(url2)
         content2 = response2.json()
 
-        #Guardado de pokemonURL en la base de datos
-        #query = Profile.objects.get(pk=request.user.pk)
-        
+        print(Contador)
         
         if Contador == 4:
             query.pokemon4 = url2

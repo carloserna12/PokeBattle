@@ -5,22 +5,22 @@ from django.utils import timezone
 # Create your models here.
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     image = models.ImageField(default='defectimg.png')
     equip = models.CharField(max_length=1500,default=0)
-    pokemon1 = models.CharField(max_length=1500,default=0)
-    pokemon2 = models.CharField(max_length=1500,default=0)
-    pokemon3 = models.CharField(max_length=1500,default=0)
-    pokemon4 = models.CharField(max_length=1500,default=0)
-    pokemon5 = models.CharField(max_length=1500,default=0)
-    pokemon6 = models.CharField(max_length=1500,default=0)
+    pokemon1 = models.CharField(max_length=1500,default='/media/defectimg.png')
+    pokemon2 = models.CharField(max_length=1500,default='/media/defectimg.png')
+    pokemon3 = models.CharField(max_length=1500,default='/media/defectimg.png')
+    pokemon4 = models.CharField(max_length=1500,default='/media/defectimg.png')
+    pokemon5 = models.CharField(max_length=1500,default='/media/defectimg.png')
+    pokemon6 = models.CharField(max_length=1500,default='/media/defectimg.png')
 
-    image_pokemon1 = models.CharField(max_length=1500,default=0)
-    image_pokemon2 = models.CharField(max_length=1500,default=0)
-    image_pokemon3 = models.CharField(max_length=1500,default=0)
-    image_pokemon4 = models.CharField(max_length=1500,default=0)
-    image_pokemon5 = models.CharField(max_length=1500,default=0)
-    image_pokemon6 = models.CharField(max_length=1500,default=0)
+    image_pokemon1 = models.CharField(max_length=1500,default='/media/defectimg.png')
+    image_pokemon2 = models.CharField(max_length=1500,default='/media/defectimg.png')
+    image_pokemon3 = models.CharField(max_length=1500,default='/media/defectimg.png')
+    image_pokemon4 = models.CharField(max_length=1500,default='/media/defectimg.png')
+    image_pokemon5 = models.CharField(max_length=1500,default='/media/defectimg.png')
+    image_pokemon6 = models.CharField(max_length=1500,default='/media/defectimg.png')
     
 
     def __str__(self) -> str:

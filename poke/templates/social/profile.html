@@ -1,30 +1,60 @@
 {% extends 'social/layout.html' %}
 {% block content %}
-
+{% load static %}
+<link href="{% static '/styles.css' %}" rel="stylesheet" />
 <!-- Profile -->
 <div class="profile">
-	<img src="../../static/batman.png">
-	<h2>@batman</h2>
+	<img src="{{user.profile.image.url}}">
+	<h2>@{{user.username}}</h2>
 	<button><a class="follow-button" href="#">Follow</a></button>
 </div>
-
 <!-- Follow items -->
 <div class="follow">
 	<div>
-		<h5>Post</h5>
+		<h5>Victorias</h5>
+		
 		<p>0</p>
 	</div>
 	<div>
-		<h5>Followers</h5>
+		<h5>Seguidores</h5>
 		<p>0</p>
 
 	</div>
 	<div>
-		<h5>Following</h5>
+		<h5>Derrotas</h5>
 		<p>0</p>
 	</div>
+
+</div>
+<div class="container-article">
+	<div>
+		<h5>Equipo Actual</h5>
+	</div>
+	{% if poke_data == "0" %}
+			<div class="team-view">
+				<img   src="/media/defectimg.png">
+			</div>
+	{% else %}
+		{% for poke_data in poke_data %}
+			<div class="team-view">
+				<img   src={{poke_data.sprites}}>
+			</div>
+		
+		{% endfor %}
+	{% endif %}
+	{% if poke_data2 == None %}
+		<div class="team-view">
+			<img  src="/media/defectimg.png">
+		</div>
+	{% else %}
+		{% for poke_data2 in poke_data2 %}
+			<div class="team-view">
+				<img   src={{poke_data2.sprites}}>
+			</div>
+		{% endfor %}
+	{% endif %}
 </div>
 
 
-<!-- block super -->
+
 {% endblock %}
