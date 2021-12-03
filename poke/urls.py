@@ -14,5 +14,6 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name='social/logout.html'), name= 'logout'),
     path('index/',views.index, name='ind'),
     path('generarTeam/',views.team, name='team'),
+    path('combates/',views.selectCombat, name='combates'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

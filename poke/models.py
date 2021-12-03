@@ -41,5 +41,16 @@ class Post(models.Model):
 
 
 
+class Enemigo(models.Model):
+    name = models.CharField(max_length=50,default="Vacio")
+    imag = models.ImageField(default='defectimg.png')
+    equipo = models.CharField(max_length=1500,default=0)
+    dificultad = models.CharField(max_length=50,default=0)
 
 
+    def ___str___(self) ->str:
+        return f'Entrenadxr{self.name}'
+
+
+    class Meta:
+        verbose_name = 'Enemigo'

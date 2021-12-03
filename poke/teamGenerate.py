@@ -1,6 +1,8 @@
 import requests
 import random
 
+
+
 def extraer_de_api(request):
     query = request
     Contador = 2
@@ -232,3 +234,5 @@ def extraer_de_db(request):
     equipoCompleto.append(poke_data2)
       
     return equipoCompleto
+
+

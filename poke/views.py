@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, render, redirect
+from requests.api import post
 from .models import *
 from .forms import UserRegisterForm
 from django.contrib import messages
@@ -100,3 +101,30 @@ def team(request):
     
     return render(request,'social/generarTeam.html',{'poke_data':poke_data,'poke_data2':poke_data2})
 
+def selectCombat(request):
+    enemigo_random = str(random.randint(1, 2))
+    enemigo_selec = Enemigo.objects.get(pk=enemigo_random)
+    equipo_pokemon = enemigo_selec.equipo
+    equipo_pokemon = equipo_pokemon.split(',')
+    listaPokemonEnemigo = []
+    for i in equipo_pokemon:
+        url = "https://pokeapi.co/api/v2/pokemon/" + str(i)
+        response = requests.get(url)
+        content = response.json()
+
+        pokemonEnemigo= {
+            'name':content['name'],
+            'id':content['id'],
+            'sprites':content['sprites']['front_default'],
+            'types':content['types'][0]['type']['name']
+            }
+        listaPokemonEnemigo.append(pokemonEnemigo)
+
+
+
+    perfilEnemy = Enemigo.objects.all()
+    
+    context = {'perfilEnemys': perfilEnemy,'listaPokemonEnemigo':listaPokemonEnemigo}
+
+    return render(request,'social/combates.html',context)
+   # return render(request,'social/combates.html',{'listaPokemonEnemigo':listaPokemonEnemigo})

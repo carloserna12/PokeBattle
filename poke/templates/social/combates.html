@@ -1,0 +1,47 @@
+{% extends 'social/layout.html' %}
+{% load static %}
+{% block content %}
+<link href='https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap' rel='stylesheet'>
+<link href="{% static '/styles.css' %}" rel="stylesheet" />
+
+<article> 
+    <article>
+        <div class="container-article">
+            <div>
+                <i class="clock"></i>
+                
+                <div class="team-view">
+                    {% for perfilEnemy in perfilEnemys %}
+                    <img src="/media/{{perfilEnemy.imag}}">
+                    
+                    {% endfor %}
+                </div>
+                <div class="team-view">
+                    Pokemones del enemigo seleccionado
+                    {% for listaPokemonEnemigo in listaPokemonEnemigo %}
+                        <img src="{{listaPokemonEnemigo.sprites}}">
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </article>
+</article> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
