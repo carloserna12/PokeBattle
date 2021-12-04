@@ -51,7 +51,7 @@ class Enemigo(models.Model):
         ordering = ['dificultad']
 
     def __str__(self):
-        return f'{self.name}:{self.dificultad}'
+        return f'{self.dificultad}:{self.name}'
 
 
     

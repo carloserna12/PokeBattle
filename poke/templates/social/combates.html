@@ -2,7 +2,8 @@
 {% load humanize %}
 {% load static %}
 {% block content %}
-
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'script.js' %}"  defer></script>
 <link href="{% static '/styles.css' %}" rel="stylesheet" />
 <center>
 <div>
@@ -31,8 +32,8 @@
             <td >
                 <div class="article2">                
                     <div >
-                        {% for enemigosMedio in enemigosMedio %}   
-                            <img class ="img-combate" src="/media/{{enemigosMedio.imag}}">
+                        {% for enemigosDificil in enemigosDificil %}   
+                            <img class ="img-combate" src="/media/{{enemigosDificil.imag}}">
                             
                         {% endfor %}
                     </div>
@@ -44,33 +45,130 @@
 </div>   
 </center> 
 <center>      
-<div class="container-article">
+<div class="container-article" style="padding: 5px">
     <div class="dificult-button">
         
-        <button>Facil</button>
+        <div class="row">
+            <button id="switchField1">Facil</button>
+        </div>
 
     </div>
     <div class="dificult-button">
 
-        <button >Medio</button>
+        <div class="row">
+            <button id="switchField2" >Medio</button>
+        </div>
 
     </div>    
     <div class="dificult-button">
 
-        <button>Dificil</button>
+        <div class="row">
+            <button id="switchField3" >Dificil</button>
+        </div>
 
     </div>
 </div>
 
-<div class="container-article">        
-    {% for listaPokemonEnemigo in listaPokemonEnemigo %}
-        <img class ="img-container" src="{{listaPokemonEnemigo.sprites}}">
-    {% endfor %}
-</div>           
-</center>            
-{% block probando %}
 
-{% endblock probando %}
+
+<div class="row" id="field1" style="display: none;">
+    <div class="container-article" style="margin:auto"> 
+        <div class="container-article" style="margin:auto"> 
+            {% if enemigoSelecFacil %}  
+            <div class="poke-card">
+                <img class ="img-combate" src="/media/{{enemigoSelecFacil.imag}}">
+                <div>
+                    {{enemigoSelecFacil.name}}
+                </div>
+                <div>
+                    {{enemigoSelecFacil.dificultad}}
+                </div>
+                <div>
+                    {{enemigoSelecFacil.equipo}}
+                </div>
+
+            </div>
+            {% endif %} 
+        {% for equipoPokemonFacil in equipoPokemonFacil %}   
+        
+            <div class="poke-card">
+                <img class ="img-container"  src="{{equipoPokemonFacil.sprites}}">
+                <div>{{equipoPokemonFacil.name}}</div>
+                <div>{{equipoPokemonFacil.id}}</div>
+                <div>{{equipoPokemonFacil.types}}</div>
+            </div>
+       
+        {% endfor %}    
+        </div> 
+    </div>
+</div>
+
+
+<div class="row" id="field2" style="display: none;">
+    <div class="container-article" style="margin:auto"> 
+        <div class="container-article" style="margin:auto"> 
+            {% if enemigoSelecMedio %}  
+            <div class="poke-card">
+                <img class ="img-combate" src="/media/{{enemigoSelecMedio.imag}}">
+                <div>
+                    {{enemigoSelecMedio.name}}
+                </div>
+                <div>
+                    {{enemigoSelecMedio.dificultad}}
+                </div>
+                <div>
+                    {{enemigoSelecMedio.equipo}}
+                </div>
+
+            </div>
+            {% endif %} 
+        {% for equipo_pokemonMedio in equipo_pokemonMedio %}   
+        
+            <div class="poke-card">
+                <img class ="img-container"  src="{{equipo_pokemonMedio.sprites}}">
+                <div>{{equipo_pokemonMedio.name}}</div>
+                <div>{{equipo_pokemonMedio.id}}</div>
+                <div>{{equipo_pokemonMedio.types}}</div>
+            </div>
+       
+        {% endfor %}    
+        </div> 
+    </div>
+</div>
+
+<div class="row" id="field3" style="display: none;">     
+    <div class="container-article" style="margin:auto"> 
+        <div class="container-article" style="margin:auto"> 
+            {% if enemigoSelecDificil %}  
+            <div class="poke-card">
+                <img class ="img-combate" src="/media/{{enemigoSelecDificil.imag}}">
+                <div>
+                    {{enemigoSelecDificil.name}}
+                </div>
+                <div>
+                    {{enemigoSelecDificil.dificultad}}
+                </div>
+                <div>
+                    {{enemigoSelecDificil.equipo}}
+                </div>
+
+            </div>
+            {% endif %}              
+        {% for equipo_pokemonDificil in equipo_pokemonDificil %}   
+        
+        <div class="poke-card">
+            <img class ="img-container"  src="{{equipo_pokemonDificil.sprites}}">
+            <div>{{equipo_pokemonDificil.name}}</div>
+            <div>{{equipo_pokemonDificil.id}}</div>
+            <div>{{equipo_pokemonDificil.types}}</div>
+        </div>
+       
+        {% endfor %}  
+    </div>          
+    </div>    
+</div>        
+</center>            
+
 
 {% endblock %}
 

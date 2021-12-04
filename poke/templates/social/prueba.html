@@ -1,7 +1,28 @@
-{% extends 'social/combates.html' %}
-{% block probando %}
-{% load humanize %}
-{% load static %}
-
-<h1>HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h1>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+$(document).ready(function(){
+$("#edad").click(function(evento){
+if($("#edad").attr("checked")){
+$("#formulariomayores").css("display","block");
+}else{
+$("#formulariomayores").css("display","none");
+}
+})
+})
+</script>
+</head>
+<body>
+<form>
+Nombre: <input type="text" name="nombre" />
+<br/>
+<inputtype="checkbox"name="mayor_edad"value="1"id="edad">Soy mayor de edad
+<br/>
+<divid="formulariomayores"style="display: none;">
+Dato para mayores de edad <input type="text" name="mayores_edad" />
+</div>
+</form>
+</body>
+</html>
