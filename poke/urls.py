@@ -3,7 +3,7 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import LoginView, LogoutView
-from poke.views import index, team
+
 
 urlpatterns = [
     path('', views.feed, name='feed'),
@@ -15,5 +15,6 @@ urlpatterns = [
     path('index/',views.index, name='ind'),
     path('generarTeam/',views.team, name='team'),
     path('combates/',views.selectCombat, name='combates'),
+    path('prueba/',views.prueba, name='prueba'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

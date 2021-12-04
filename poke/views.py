@@ -102,11 +102,12 @@ def team(request):
     return render(request,'social/generarTeam.html',{'poke_data':poke_data,'poke_data2':poke_data2})
 
 def selectCombat(request):
-    enemigo_random = str(random.randint(1, 2))
+    enemigo_random = str(random.randint(1, 9))
     enemigo_selec = Enemigo.objects.get(pk=enemigo_random)
     equipo_pokemon = enemigo_selec.equipo
     equipo_pokemon = equipo_pokemon.split(',')
     listaPokemonEnemigo = []
+
     for i in equipo_pokemon:
         url = "https://pokeapi.co/api/v2/pokemon/" + str(i)
         response = requests.get(url)
@@ -124,7 +125,24 @@ def selectCombat(request):
 
     perfilEnemy = Enemigo.objects.all()
     
-    context = {'perfilEnemys': perfilEnemy,'listaPokemonEnemigo':listaPokemonEnemigo}
+    enemigosFacil =     Enemigo.objects.filter(dificultad__contains = 'Facil')
+    enemigosMedio =     Enemigo.objects.filter(dificultad__contains = 'Medio')
+    enemigosDificil =   Enemigo.objects.filter(dificultad__contains = 'Dificil')
+    
+    
+    context = { 
+        'perfilEnemys': perfilEnemy,
+        'listaPokemonEnemigo':listaPokemonEnemigo,
+        'enemigosFacil':enemigosFacil,
+        'enemigosMedio':enemigosMedio,
+        'enemigosDificil':enemigosDificil
+        }
 
     return render(request,'social/combates.html',context)
    # return render(request,'social/combates.html',{'listaPokemonEnemigo':listaPokemonEnemigo})
+
+
+
+def prueba(request):
+    enemigosFacil =     Enemigo.objects.filter(dificultad__contains = 'Facil')
+    return render(request,'social/prueba.html',{'enemigosFacil':enemigosFacil})

@@ -47,10 +47,11 @@ class Enemigo(models.Model):
     equipo = models.CharField(max_length=1500,default=0)
     dificultad = models.CharField(max_length=50,default=0)
 
-
-    def ___str___(self) ->str:
-        return f'Entrenadxr{self.name}'
-
-
     class Meta:
-        verbose_name = 'Enemigo'
+        ordering = ['dificultad']
+
+    def __str__(self):
+        return f'{self.name}:{self.dificultad}'
+
+
+    
