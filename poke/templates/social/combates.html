@@ -1,0 +1,78 @@
+{% extends 'social/layout.html' %}
+{% load humanize %}
+{% load static %}
+{% block content %}
+
+<link href="{% static '/styles.css' %}" rel="stylesheet" />
+<center>
+<div>
+<table>
+    <tbody>     
+        <tr>
+            <td >
+                <div class="article2">                
+                    <div >
+                        {% for enemigosFacil in enemigosFacil %}   
+                            
+                            <a class="img-combate" href="/media/{{enemigosFacil.imag}}"><img class ="img-combate" src="/media/{{enemigosFacil.imag}}"></a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </td>
+            <td >
+                <div class="article2">                
+                    <div >
+                        {% for enemigosMedio in enemigosMedio %}   
+                            <img class ="img-combate" src="/media/{{enemigosMedio.imag}}">
+                        {% endfor %}
+                    </div>
+                </div>
+            </td>
+            <td >
+                <div class="article2">                
+                    <div >
+                        {% for enemigosMedio in enemigosMedio %}   
+                            <img class ="img-combate" src="/media/{{enemigosMedio.imag}}">
+                            
+                        {% endfor %}
+                    </div>
+                </div>
+            </td>
+        </tr>    
+    </tbody>
+</table>
+</div>   
+</center> 
+<center>      
+<div class="container-article">
+    <div class="dificult-button">
+        
+        <button>Facil</button>
+
+    </div>
+    <div class="dificult-button">
+
+        <button >Medio</button>
+
+    </div>    
+    <div class="dificult-button">
+
+        <button>Dificil</button>
+
+    </div>
+</div>
+
+<div class="container-article">        
+    {% for listaPokemonEnemigo in listaPokemonEnemigo %}
+        <img class ="img-container" src="{{listaPokemonEnemigo.sprites}}">
+    {% endfor %}
+</div>           
+</center>            
+{% block probando %}
+
+{% endblock probando %}
+
+{% endblock %}
+
+
+

@@ -19,8 +19,6 @@ from poke.views import index, team
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('poke.urls')),
-    path('index/',index),
-    path('GenerarTeam/',team),
 
     
 ]

@@ -6,13 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="{%static 'normalize.css'%}">
-	<link rel="stylesheet" type="text/css" href="{%static 'style.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'styles.css'%}">
 </head>
 <body>
 
 	<header class="main-head">
 		<nav class="main">
-			<h1 id="logo">Hola</h1>
+			<h1 id="logo">Pokeweon</h1>
 			<ul>
 				{% if request.user.is_authenticated %}
 				<li><a href="{% url 'logout' %}">Logout</a></li>
@@ -42,8 +42,10 @@
 		<nav class="second-nav">
 			<a class="feed" href="{% url 'feed' %}">Inicio</a>
 			{% if request.user.is_authenticated %}
-			<a class="profile" href="#">Mi Perfil</a>
-			<a class="new" href="#">Crear nuevo post</a>
+			<a class="profile" href="{% url 'profile' request.user.username %}">Mi Perfil</a>
+			<a class="profile" href="{% url 'combates' %}">Combates</a>
+			<a class="new" href="{% url 'team' %}">Generar equipo</a>
+			
 			{% endif %}
 		</nav>
 
@@ -53,12 +55,11 @@
 		{% endblock content %}
 
 
-
 	</div>
 
 	<footer>
 		<div class="row">
-			<p>Red Social con Django<br>hecha por: <a href="http://www.youtube.com/mundopython">Mundo Python</a></p>
+			<p>pokeweon<br> </p>
 		</div>
 	</footer>
 
