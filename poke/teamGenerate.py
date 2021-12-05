@@ -1,45 +1,26 @@
 import requests
 import random
-
+from .models import *
 
 
 def extraer_de_api(request):
+    cod = 0
     query = request
     Contador = 2
     equipoCompleto = []
-    #Pikachu
-    url = "https://pokeapi.co/api/v2/pokemon/25"
-    response = requests.get(url)
-    content = response.json()
     poke_data = []
     poke_data2 = []
-    #Guardado de pikachu
-    query.pokemon1 = url
-    query.image_pokemon1 = content['sprites']['front_default']
-    query.save()
-    #############################habilidades random###############################
-    
-    movesPikachu = extraerMov(content)
-
-    ##############################################################################
-    single_poke = {
-        'name':content['name'],
-        'id':content['id'],
-        'sprites':content['sprites']['front_default'],
-        'types':content['types'][0]['type']['name'],
-        'types2':'-',
-        'mov1':movesPikachu[0],
-        'mov2':movesPikachu[1],
-        'mov3':movesPikachu[2],
-        'mov4':movesPikachu[3]
-        }
-    poke_data.append(single_poke)
-    print(single_poke)
-
+    listIdMov = []
+    ############################# Genera Pikachu ###############################
+    contentPika = (generarPikachu(query))
+    poke_data.append(contentPika)
+    listIdMov.append(contentPika['movesPikachu'])
+    ############################################################################
+    get_pokemon = "https://pokeapi.co/api/v2/pokemon/"
 
     for i  in range(2):
-        get_pokemon = "https://pokeapi.co/api/v2/pokemon/"
-        pokemon_random = random.randint(1, 1282)
+        
+        pokemon_random = random.randint(1, 900)
         url = get_pokemon + str(pokemon_random)
         response = requests.get(url)
         content = response.json()
@@ -49,45 +30,25 @@ def extraer_de_api(request):
             query.image_pokemon2 = content['sprites']['front_default']
             query.save()
             Contador= Contador + 1
-        elif Contador == 3:
+        else:
             query.pokemon3 = url
             query.image_pokemon3 = content['sprites']['front_default']
             query.save()
-            Contador= Contador + 1
-        else:
-            query.pokemon4 = url
-            query.image_pokemon4 = content['sprites']['front_default']
-            query.save()
-            
-        
+            Contador = Contador + 1
+
         ############################################
+        deita=(singlePokeCreate(content, cod))
+        
+        poke_data.append(deita)
+        listIdMov.append(deita['listMov'])
 
-        if (len(content['types']) == 1):
-            single_poke = {
-                'name':content['name'],
-                'id':content['id'],
-                'sprites':content['sprites']['front_default'],
-                'types':content['types'][0]['type']['name'],
-                'types2':'-'
-            }
-            poke_data.append(single_poke)
-        else:
-            single_poke = {
-                'name':content['name'],
-                'id':content['id'],
-                'sprites':content['sprites']['front_default'],
-                'types':content['types'][0]['type']['name'],
-                'types2':content['types'][1]['type']['name']
-            }
-            poke_data.append(single_poke)
-
-
+        
 
 
     for i in range(3):
-        get_poke2 = "https://pokeapi.co/api/v2/pokemon/"
-        poke2 = random.randint(1, 1200)
-        url2 = get_poke2 + str(poke2)
+        
+        poke2 = random.randint(1, 900)
+        url2 = get_pokemon + str(poke2)
         response2 = requests.get(url2)
         content2 = response2.json()
 
@@ -110,39 +71,26 @@ def extraer_de_api(request):
             
         
         ############################################
-    #    print(len(content2['types']))        
-
-        if (len(content2['types']) == 1):
-            single_poke2 = {
-                'name':content2['name'],
-                'id':content2['id'],
-                'sprites':content2['sprites']['front_default'],
-                'types':content2['types'][0]['type']['name'],
-                'types2':'-'
-            }
-            poke_data2.append(single_poke2)
-        else:
-            single_poke2 = {
-                'name':content2['name'],
-                'id':content2['id'],
-                'sprites':content2['sprites']['front_default'],
-                'types':content2['types'][0]['type']['name'],
-                'types2':content2['types'][1]['type']['name']
-            }
-            poke_data2.append(single_poke2)
+        deita=(singlePokeCreate(content2), cod)
+        
+        poke_data2.append(deita)
+        listIdMov.append(deita['listMov'])
+        
 
     #Guardando equipo completo 
-    
+    query.skills = listIdMov
     equipoCompleto.append(poke_data)
     equipoCompleto.append(poke_data2)
-    print(equipoCompleto)
     query.equip = equipoCompleto
     query.save()
-    
+
+
+        
     return equipoCompleto
     
 
 def extraer_de_db(request):
+    cod = 1
     query = request
     Contador = 2
     P1 = query.pokemon1
@@ -158,41 +106,52 @@ def extraer_de_db(request):
     poke_data2 = []
     equipoCompleto = []
 
-    #############################habilidades random###############################
-    listIdMov = []
-    listMov = []
-    for i in range(4):
-        
-        idNumRandom = random.randint(1,((len(content['moves']))- 1) )
-        listIdMov.append(idNumRandom)
-        moveUrl = (content['moves'][idNumRandom]['move']['url'])
-        responseMov = requests.get(moveUrl)
-        contentMov = responseMov.json()
-        moves = {
-            'name':contentMov['name'],
-            'type':contentMov['type']['name']
-        }
-        listMov.append(moves)
-        
-        
+    usuario = request.user
+    PerfilUsuario = Profile.objects.get(user=usuario)
+    movPeticion = PerfilUsuario.skills
+
+    arrayMov = []
+    #Consulta de Movimientos
+    cod = EliminarCaracteres(movPeticion)
+    newCod = cod.split(',')
+    movP1 = []
+    j = 0
+
+
+    for p in range(4):
+        movP1.append(newCod[j])
+        j = j+1
+
+    movP2 = []
+    for p in range(4):
+        movP2.append(newCod[j])
+        j = j+1
+
+    movP3 = []
+    for p in range(4):
+        movP3.append(newCod[j])
+        j = j+1
+
+    movP4 = []
+    for p in range(4):
+        movP4.append(newCod[j])
+        j = j+1
 
     
-    ##############################################################################
+    a = rezar(movP1)
+    b = rezar(movP2)
+    c = rezar(movP3)
+    d = rezar(movP4)
+        
 
-    single_poke = {
-        'name':content['name'],
-        'id':content['id'],
-        'sprites':content['sprites']['front_default'],
-        'types':content['types'][0]['type']['name'],
-        'types2':'-',
-        'mov1':listMov[0],
-        'mov2':listMov[1],
-        'mov3':listMov[2],
-        'mov4':listMov[3]
-        }
+
+    single_poke = singlePokeCreate(content , a)
     
     
     poke_data.append(single_poke)
+
+
+    
 
     for i in range(2):
         if Contador == 2:
@@ -208,28 +167,8 @@ def extraer_de_db(request):
         response = requests.get(url)
         
         content = response.json()
+        poke_data.append(singlePokeCreate(content, b))
         
-        if (len(content['types']) == 1):
-            single_poke = {
-                'name':content['name'],
-                'id':content['id'],
-                'sprites':content['sprites']['front_default'],
-                'types':content['types'][0]['type']['name'],
-                'types2':'-'
-            }
-            poke_data.append(single_poke)
-            
-        else:
-            single_poke = {
-                'name':content['name'],
-                'id':content['id'],
-                'sprites':content['sprites']['front_default'],
-                'types':content['types'][0]['type']['name'],
-                'types2':content['types'][1]['type']['name']
-            }
-            poke_data.append(single_poke)
-
-
     for i in range(3):
         
         if Contador == 4:
@@ -246,44 +185,133 @@ def extraer_de_db(request):
         response2 = requests.get(url2)
         content2 = response2.json()
 
-        if (len(content2['types']) == 1):
-            single_poke2 = {
-                'name':content2['name'],
-                'id':content2['id'],
-                'sprites':content2['sprites']['front_default'],
-                'types':content2['types'][0]['type']['name'],
-                'types2':'-'
-            }
-            poke_data2.append(single_poke2)
-        else:
-            single_poke2 = {
-                'name':content2['name'],
-                'id':content2['id'],
-                'sprites':content2['sprites']['front_default'],
-                'types':content2['types'][0]['type']['name'],
-                'types2':content2['types'][1]['type']['name']
-            }
-            poke_data2.append(single_poke2)
+        poke_data2.append(singlePokeCreate(content2, c))
             
     equipoCompleto.append(poke_data)
     equipoCompleto.append(poke_data2)
       
+ 
+      
+
+
+
     return equipoCompleto
 
+def generarPikachu(query):
+    #Pikachu
+    url = "https://pokeapi.co/api/v2/pokemon/25"
+    response = requests.get(url)
+    content = response.json()
+    movesPikachu = generateMov(content)
+    #Guardado de pikachu
+    query.pokemon1 = url
+    query.image_pokemon1 = content['sprites']['front_default']
+    #query.skills = movesPikachu[4]
+    query.save()
+    
+    
 
-def extraerMov(content):
+    single_poke = {
+        'name':content['name'],
+        'id':content['id'],
+        'sprites':content['sprites']['front_default'],
+        'types':content['types'][0]['type']['name'],
+        'types2':'-',
+        'mov1':movesPikachu[0],
+        'mov2':movesPikachu[0],
+        'mov3':movesPikachu[0],
+        'mov4':movesPikachu[0],
+        'movesPikachu':movesPikachu[4]
+        }
+    return single_poke
+
+
+def singlePokeCreate(content, cod):
+
+    if cod == 0:
+        listMov = generateMov(content)
+    else:
+        cod.append(1)
+        listMov = cod   
+      
+        
+
+
+        
+    if (len(content['types']) == 1):
+        single_poke = {
+        'name':content['name'],
+        'id':content['id'],
+        'sprites':content['sprites']['front_default'],
+        'types':content['types'][0]['type']['name'],
+        'types2':'-',
+        'mov1':listMov[0],
+        'mov2':listMov[1],
+        'mov3':listMov[2],
+        'mov4':listMov[3],
+        'listMov':listMov[4]
+        }
+        return single_poke
+    else:
+        single_poke = {
+            'name':content['name'],
+            'id':content['id'],
+            'sprites':content['sprites']['front_default'],
+            'types':content['types'][0]['type']['name'],
+            'types2':content['types'][1]['type']['name'],
+            'mov1':listMov[0],
+            'mov2':listMov[1],
+            'mov3':listMov[2],
+            'mov4':listMov[3],
+            'listMov':listMov[4]
+            
+        }
+        return single_poke
+
+
+def generateMov(content):
     listIdMov = []
     listMov = []
-    for i in range(4):
-        
+    arrayDeId = []
+
+    for i in range(4):  
         idNumRandom = random.randint(1,((len(content['moves']))- 1) )
         listIdMov.append(idNumRandom)
         moveUrl = (content['moves'][idNumRandom]['move']['url'])
+
         responseMov = requests.get(moveUrl)
         contentMov = responseMov.json()
+
+        arrayDeId.append(contentMov['id'])
         moves = {
             'name':contentMov['name'],
-            'type':contentMov['type']['name']
+            'type':contentMov['type']['name'],
+            
         }
         listMov.append(moves)
-    return listMov
+        
+    listMov.append(arrayDeId)
+    return listMov  
+
+
+def EliminarCaracteres(cod):
+    characters = "[] "
+    for x in range(len(characters)):
+        cod = cod.replace(characters[x],"")
+
+    return cod
+
+def rezar(movP1):
+    a = []
+    for i in movP1:
+        urlGlobal = "https://pokeapi.co/api/v2/move/"
+        url = urlGlobal + i
+        response = requests.get(url)
+        contentG = response.json()
+
+        moves = {
+            'name':contentG['name'],
+            'type':contentG['type']['name'],    
+        }
+        a.append(moves)
+    return a

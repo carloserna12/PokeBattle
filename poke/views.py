@@ -97,6 +97,7 @@ def team(request):
     else:
         equipoCompleto = extraer_de_db(query)
         poke_data = equipoCompleto[0]
+     
         poke_data2 = equipoCompleto[1]
     
     return render(request,'social/generarTeam.html',{'poke_data':poke_data,'poke_data2':poke_data2})
