@@ -71,7 +71,7 @@ def extraer_de_api(request):
             
         
         ############################################
-        deita=(singlePokeCreate(content2), cod)
+        deita=(singlePokeCreate(content2, cod))
         
         poke_data2.append(deita)
         listIdMov.append(deita['listMov'])
@@ -137,11 +137,21 @@ def extraer_de_db(request):
         movP4.append(newCod[j])
         j = j+1
 
+    movP5 = []
+    for p in range(4):
+        movP5.append(newCod[j])
+        j = j+1
+    movP6 = []
+    for p in range(4):
+        movP6.append(newCod[j])
+        j = j+1
+
     
     a = rezar(movP1)
-    b = rezar(movP2)
-    c = rezar(movP3)
-    d = rezar(movP4)
+    print(a)
+    
+    
+
         
 
 
@@ -156,11 +166,11 @@ def extraer_de_db(request):
     for i in range(2):
         if Contador == 2:
             url = P2
-            
+            b = rezar(movP2)
             Contador= Contador + 1
         else:
             url = P3
-        
+            b = rezar(movP3)
             Contador= Contador + 1
 
         
@@ -173,14 +183,15 @@ def extraer_de_db(request):
         
         if Contador == 4:
             url2 = P4
-            
+            c = rezar(movP4)
             Contador= Contador + 1
         elif Contador == 5:
             url2 = P5
-            
+            c = rezar(movP5)
             Contador= Contador + 1
         else:
             url2 = P6
+            c = rezar(movP6)
             
         response2 = requests.get(url2)
         content2 = response2.json()
@@ -207,6 +218,8 @@ def generarPikachu(query):
     query.pokemon1 = url
     query.image_pokemon1 = content['sprites']['front_default']
     #query.skills = movesPikachu[4]
+    print("sisisisisisii")
+    print(movesPikachu)
     query.save()
     
     
@@ -218,9 +231,9 @@ def generarPikachu(query):
         'types':content['types'][0]['type']['name'],
         'types2':'-',
         'mov1':movesPikachu[0],
-        'mov2':movesPikachu[0],
-        'mov3':movesPikachu[0],
-        'mov4':movesPikachu[0],
+        'mov2':movesPikachu[1],
+        'mov3':movesPikachu[2],
+        'mov4':movesPikachu[3],
         'movesPikachu':movesPikachu[4]
         }
     return single_poke
@@ -275,20 +288,25 @@ def generateMov(content):
     arrayDeId = []
 
     for i in range(4):  
-        idNumRandom = random.randint(1,((len(content['moves']))- 1) )
-        listIdMov.append(idNumRandom)
-        moveUrl = (content['moves'][idNumRandom]['move']['url'])
+        print(((len(content['moves']))))
+        idNumRandom = random.randint(1,((len(content['moves'])- 1)) )
+        if(idNumRandom < 0):
+            print("dio menor que 0")
+            idNumRandom = idNumRandom + 1
+        else:
+            listIdMov.append(idNumRandom)
+            moveUrl = (content['moves'][idNumRandom]['move']['url'])
 
-        responseMov = requests.get(moveUrl)
-        contentMov = responseMov.json()
+            responseMov = requests.get(moveUrl)
+            contentMov = responseMov.json()
 
-        arrayDeId.append(contentMov['id'])
-        moves = {
-            'name':contentMov['name'],
-            'type':contentMov['type']['name'],
-            
-        }
-        listMov.append(moves)
+            arrayDeId.append(contentMov['id'])
+            moves = {
+                'name':contentMov['name'],
+                'type':contentMov['type']['name'],
+                
+            }
+            listMov.append(moves)
         
     listMov.append(arrayDeId)
     return listMov  
