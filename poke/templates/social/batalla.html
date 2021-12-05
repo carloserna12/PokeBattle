@@ -1,0 +1,25 @@
+{% extends 'social/layout.html'%}
+{% load static %}
+{% block content %}
+
+
+{% for equipoEnemigo in equipoEnemigo %}   
+        
+            <div class="poke-card">
+                <img class ="img-container"  src="{{equipoEnemigo.sprites}}">
+                <div>{{equipoEnemigo.name}}</div>
+                <div>{{equipoEnemigo.id}}</div>
+                <div>{{equipoEnemigo.types}}</div>
+            </div>
+       
+        {% endfor %}  
+
+
+
+
+
+
+
+
+
+{% endblock %}

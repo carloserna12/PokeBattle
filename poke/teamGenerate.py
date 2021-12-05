@@ -17,15 +17,24 @@ def extraer_de_api(request):
     query.pokemon1 = url
     query.image_pokemon1 = content['sprites']['front_default']
     query.save()
-    ###################
+    #############################habilidades random###############################
+    
+    movesPikachu = extraerMov(content)
+
+    ##############################################################################
     single_poke = {
         'name':content['name'],
         'id':content['id'],
         'sprites':content['sprites']['front_default'],
         'types':content['types'][0]['type']['name'],
-        'types2':'-'
+        'types2':'-',
+        'mov1':movesPikachu[0],
+        'mov2':movesPikachu[1],
+        'mov3':movesPikachu[2],
+        'mov4':movesPikachu[3]
         }
     poke_data.append(single_poke)
+    print(single_poke)
 
 
     for i  in range(2):
@@ -82,7 +91,7 @@ def extraer_de_api(request):
         response2 = requests.get(url2)
         content2 = response2.json()
 
-        print(Contador)
+        
         
         if Contador == 4:
             query.pokemon4 = url2
@@ -149,14 +158,40 @@ def extraer_de_db(request):
     poke_data2 = []
     equipoCompleto = []
 
+    #############################habilidades random###############################
+    listIdMov = []
+    listMov = []
+    for i in range(4):
+        
+        idNumRandom = random.randint(1,((len(content['moves']))- 1) )
+        listIdMov.append(idNumRandom)
+        moveUrl = (content['moves'][idNumRandom]['move']['url'])
+        responseMov = requests.get(moveUrl)
+        contentMov = responseMov.json()
+        moves = {
+            'name':contentMov['name'],
+            'type':contentMov['type']['name']
+        }
+        listMov.append(moves)
+        
+        
+
+    
+    ##############################################################################
+
     single_poke = {
         'name':content['name'],
         'id':content['id'],
         'sprites':content['sprites']['front_default'],
         'types':content['types'][0]['type']['name'],
-        'types2':'-'
+        'types2':'-',
+        'mov1':listMov[0],
+        'mov2':listMov[1],
+        'mov3':listMov[2],
+        'mov4':listMov[3]
         }
-#  print(single_poke)
+    
+    
     poke_data.append(single_poke)
 
     for i in range(2):
@@ -236,3 +271,19 @@ def extraer_de_db(request):
     return equipoCompleto
 
 
+def extraerMov(content):
+    listIdMov = []
+    listMov = []
+    for i in range(4):
+        
+        idNumRandom = random.randint(1,((len(content['moves']))- 1) )
+        listIdMov.append(idNumRandom)
+        moveUrl = (content['moves'][idNumRandom]['move']['url'])
+        responseMov = requests.get(moveUrl)
+        contentMov = responseMov.json()
+        moves = {
+            'name':contentMov['name'],
+            'type':contentMov['type']['name']
+        }
+        listMov.append(moves)
+    return listMov

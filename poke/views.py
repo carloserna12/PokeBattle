@@ -140,6 +140,8 @@ def selectCombat(request):
         'enemigoSelecMedio':enemigoSelecMedio,
         'enemigoSelecDificil':enemigoSelecDificil
         }
+    
+    
 
     return render(request,'social/combates.html',context)
    # return render(request,'social/combates.html',{'listaPokemonEnemigo':listaPokemonEnemigo})
@@ -163,3 +165,18 @@ def armarDificultad(equipo_pokemon):
 
 
     return listaPokemonEnemigo
+
+
+
+def batalla(request,pk):
+    idEnemigo = pk
+    enemigo = Enemigo.objects.get(pk=pk)
+    equipoEnemigo = (enemigo.equipo).split(',')
+    equipoEnemigo = armarDificultad(equipoEnemigo)
+    
+    context = {
+        'equipoEnemigo':equipoEnemigo,
+        'enemigo':enemigo
+    }
+    return render(request, 'social/batalla.html',context)
+

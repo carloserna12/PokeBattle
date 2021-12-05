@@ -15,6 +15,7 @@ urlpatterns = [
     path('index/',views.index, name='ind'),
     path('generarTeam/',views.team, name='team'),
     path('combates/',views.selectCombat, name='combates'),
+    path('combates/<int:pk>/',views.batalla),
     
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
