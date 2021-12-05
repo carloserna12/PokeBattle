@@ -107,7 +107,8 @@ def extraer_de_db(request):
     equipoCompleto = []
 
     usuario = request.user
-    PerfilUsuario = Profile.objects.get(user=usuario)
+    PerfilUsuario = query
+    print(PerfilUsuario)
     movPeticion = PerfilUsuario.skills
 
     arrayMov = []
@@ -288,25 +289,44 @@ def generateMov(content):
     arrayDeId = []
 
     for i in range(4):  
+        print("cantidad de movimientos del pokemon")
         print(((len(content['moves']))))
-        idNumRandom = random.randint(1,((len(content['moves'])- 1)) )
-        if(idNumRandom < 0):
-            print("dio menor que 0")
-            idNumRandom = idNumRandom + 1
+        print("######")
+        var = (len(content['moves'])- 1)
+        print("var menos uno")
+        print(var)
+        if var <= 0:
+            var = 0
+            idNumRandom = 0
+            print("entre XYA")
+        else:
+            var = var
+            idNumRandom = random.randint(1,(var) )
+            print("entre XYB")
+
+
+        
+        if(idNumRandom <= 0):
+            print("dio menor que 0#####################################################")
+            listIdMov.append(5)
+            moverUrl = "https://pokeapi.co/api/v2/move/"
+            Randoma = random.randint(1,150 )
+            moveUrl = moverUrl + str(Randoma)
+            
         else:
             listIdMov.append(idNumRandom)
             moveUrl = (content['moves'][idNumRandom]['move']['url'])
 
-            responseMov = requests.get(moveUrl)
-            contentMov = responseMov.json()
+        responseMov = requests.get(moveUrl)
+        contentMov = responseMov.json()
 
-            arrayDeId.append(contentMov['id'])
-            moves = {
-                'name':contentMov['name'],
-                'type':contentMov['type']['name'],
-                
-            }
-            listMov.append(moves)
+        arrayDeId.append(contentMov['id'])
+        moves = {
+            'name':contentMov['name'],
+            'type':contentMov['type']['name'],
+            
+        }
+        listMov.append(moves)
         
     listMov.append(arrayDeId)
     return listMov  

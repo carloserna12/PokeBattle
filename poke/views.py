@@ -61,9 +61,10 @@ def profile(request, username=None):
             user = User.objects.get(username=username)
             id_master = user.id
             a = Profile.objects.get(user_id=id_master)
-
+            print(a)
             posts = user.posts.all()
             equipoCompleto = extraer_de_db(a)
+      
             poke_data = equipoCompleto[0]
             poke_data2 = equipoCompleto[1]
 
