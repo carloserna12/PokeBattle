@@ -108,7 +108,7 @@ def extraer_de_db(request):
 
     usuario = request.user
     PerfilUsuario = query
-    print(PerfilUsuario)
+   
     movPeticion = PerfilUsuario.skills
 
     arrayMov = []
@@ -149,7 +149,7 @@ def extraer_de_db(request):
 
     
     a = rezar(movP1)
-    print(a)
+    
     
     
 
@@ -219,8 +219,8 @@ def generarPikachu(query):
     query.pokemon1 = url
     query.image_pokemon1 = content['sprites']['front_default']
     #query.skills = movesPikachu[4]
-    print("sisisisisisii")
-    print(movesPikachu)
+    
+
     query.save()
     
     
@@ -289,25 +289,22 @@ def generateMov(content):
     arrayDeId = []
 
     for i in range(4):  
-        print("cantidad de movimientos del pokemon")
-        print(((len(content['moves']))))
-        print("######")
+      
         var = (len(content['moves'])- 1)
-        print("var menos uno")
-        print(var)
+     
         if var <= 0:
             var = 0
             idNumRandom = 0
-            print("entre XYA")
+          
         else:
             var = var
             idNumRandom = random.randint(1,(var) )
-            print("entre XYB")
+           
 
 
         
         if(idNumRandom <= 0):
-            print("dio menor que 0#####################################################")
+
             listIdMov.append(5)
             moverUrl = "https://pokeapi.co/api/v2/move/"
             Randoma = random.randint(1,150 )

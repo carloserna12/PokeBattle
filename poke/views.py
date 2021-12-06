@@ -7,7 +7,7 @@ import requests
 import random
 from .models import Post, Profile
 #from django.contrib.auth import *
-from .teamGenerate import extraer_de_api,extraer_de_db
+from .teamGenerate import EliminarCaracteres, extraer_de_api,extraer_de_db, generateMov, singlePokeCreate
 from django.contrib.auth.models import User
 
 
@@ -61,7 +61,7 @@ def profile(request, username=None):
             user = User.objects.get(username=username)
             id_master = user.id
             a = Profile.objects.get(user_id=id_master)
-            print(a)
+          
             posts = user.posts.all()
             equipoCompleto = extraer_de_db(a)
       
@@ -89,7 +89,7 @@ def index(request):
 def team(request):
     query = Profile.objects.get(user=request.user)
     a = query.equip
-    
+    print(type(a))
     
     if a == "0":
         equipoCompleto = extraer_de_api(query)
@@ -128,8 +128,6 @@ def selectCombat(request):
 
     perfilEnemy = Enemigo.objects.all()
     
-    print(enemigosFacil[0].imag)
-    print(enemigoSelecDificil)
     context = { 
         'perfilEnemys': perfilEnemy,
         'equipoPokemonFacil':equipoPokemonFacil,
@@ -156,13 +154,16 @@ def armarDificultad(equipo_pokemon):
         url = "https://pokeapi.co/api/v2/pokemon/" + str(i)
         response = requests.get(url)
         content = response.json()
+        cod = 0
+        pokemonEnemigo = singlePokeCreate(content, cod)
 
-        pokemonEnemigo= {
+
+        """ pokemonEnemigo= {
             'name':content['name'],
             'id':content['id'],
             'sprites':content['sprites']['front_default'],
             'types':content['types'][0]['type']['name']
-            }
+            } """
         listaPokemonEnemigo.append(pokemonEnemigo)
 
 
@@ -171,14 +172,24 @@ def armarDificultad(equipo_pokemon):
 
 
 def batalla(request,pk):
-    idEnemigo = pk
     enemigo = Enemigo.objects.get(pk=pk)
     equipoEnemigo = (enemigo.equipo).split(',')
     equipoEnemigo = armarDificultad(equipoEnemigo)
     
+    
+    query = Profile.objects.get(user=request.user)
+    miEquipoCompleto = extraer_de_db(  query)
+    poke_data = miEquipoCompleto[0]
+    poke_data2 = miEquipoCompleto[1]
+    print(poke_data)
+    
+    
     context = {
         'equipoEnemigo':equipoEnemigo,
-        'enemigo':enemigo
+        'enemigo':enemigo,
+        'poke_data':poke_data,
+        'poke_data2':poke_data2
     }
+    
     return render(request, 'social/batalla.html',context)
 

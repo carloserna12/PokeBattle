@@ -179,16 +179,7 @@ p{
 	font-size: 1rem;
 }
 
-button{
-	font-size: 1rem;
-	color: white;
-	padding: 0.4rem 1.4rem;
-	border: none;
-	background: #7A9D96;
-	 border-radius: 4px;
-	cursor: pointer;
 
-}
 
 img{
 	object-fit: cover;
@@ -403,6 +394,16 @@ button#submit {
 button#submit:hover {
   opacity: 1;
 }
+button{
+	font-size: 1rem;
+	color: white;
+	padding: 0.4rem 1.4rem;
+	border: none;
+	background: #7A9D96;
+	 border-radius: 4px;
+	cursor: pointer;
+
+}
 
 /*Notifications*/
 .notification {
@@ -462,4 +463,18 @@ img.profile{
 
 .dificult-button{
   margin: auto;
+}
+
+
+#group-btn{
+  display:flex;
+  width:100%;
+}
+
+#group-btn > img >{
+  width: 100%;
+}
+
+#result{
+  height: 50vh;
 }
