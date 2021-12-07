@@ -5,7 +5,7 @@
 <script type="text/javascript" src="{% static 'app.js' %}" defer></script>
 
 <center>
-    <div id="field2" class="row" style="padding: 20px;">
+    <div id="field3" class="row" style="padding: 20px;">
 
         {% if poke_data %}
             <img id="FE1" style="position: relative;" style="left: 230px;" src="{{equipoEnemigo.0.sprites}}">
@@ -16,10 +16,11 @@
             <img id="FE6" style="position: relative;" style="left: 230px;" style="display: none;" src="{{equipoEnemigo.5.sprites}}">
             
             <div id="eVida">5</div>Pokemon disponibles: <div id="pokeTeamE">6</div>
-            <div id="aVida">5</div>Pokemon disponibles:<div id="pokeTeamA">6</div>
             <div id="result">Seleccione un ataque </div>
+            
             <div id="pk1-img" style="display: none;">
 
+            <div id="aVida">5</div>Pokemon disponibles:<div id="pokeTeamA">6</div>
             
             
             <img id=FA1  style="right: 230px;" src="{{poke_data.0.sprites}}">
@@ -59,7 +60,7 @@
 
 
         <div id="pk2-img" style="display: none;">
-
+            <div id="aVida2">5</div>Pokemon disponibles:<div id="pokeTeamA">6</div>
             
             
             <img id=FA2  style="right: 230px;" src="{{poke_data.1.sprites}}">
@@ -101,7 +102,7 @@
 
 
 
-        <div class="row" id="field2" style="display: block;">
+        <div class="row" id="field1" style="display: block;">
             <div class="container-article" style="margin:auto">
                 <div id="group-btn">
                     <button id="pk1" class="row">
