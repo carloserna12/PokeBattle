@@ -10,18 +10,15 @@
 {% if poke_data %}
 
 <div id="pk1-img"  style="display: none;">
-    <img class = "img-container" src="{{poke_data.0.sprites}}">
-    <img class ="img-container"  src="{{equipoEnemigo.0.sprites}}">
+    
+    <img class ="img-container" style="left: 230px;" src="{{equipoEnemigo.0.sprites}}">  <div id="eVida">5</div>
+    <img class = "img-container" style="right: 230px;" src="{{poke_data.0.sprites}}"><div id="aVida">5</div>
+
     <div id="skills">
         <div>
         <div id ="result">Seleccione un ataque </div>
         <button id = "skill1" class="row"  onclick="hola(
-        '{{poke_data.0.mov1.name}}{{poke_data.0.mov1.type}}',
-        '{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}',
-        '{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}',
-        '{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}',
-        '{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}',
-        '{{equipoEnemigo.0.name}}','{{poke_data.0.name}}',result)">
+        '{{poke_data.0.mov1.name}}','{{poke_data.0.mov1.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.0.name}}','{{equipoEnemigo.0.name}}','{{poke_data.0.types}}','{{equipoEnemigo.0.types}}',result)">
             {{poke_data.0.mov1.name}}-{{poke_data.0.mov1.type}}
         </button>
         
@@ -41,12 +38,7 @@
 </div>
 
 
-<h1  onclick="test('{{poke_data.0.mov1.name}}',this)">Click on this text!</h1>
-<script>
-var test =function(value,object){  
-object.innerHTML=value;
-};     
-</script>
+
 
 
 
