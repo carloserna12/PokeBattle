@@ -4,8 +4,10 @@ const vidaEnemiga = document.getElementById("eVida");
 const teamA = document.getElementById("pokeTeamA");
 const teamE = document.getElementById("pokeTeamE");
 const field1 = document.getElementById('field1');
-const FE1 = document.getElementById('FE1')
-const FE2 = document.getElementById('FE2')
+const FE1 = document.getElementById('FE1');
+const FE2 = document.getElementById('FE2');
+const PKB1 = document.getElementById('pk1');
+const PKB1IMG = document.getElementById('pk1-img');
 
 //////////////equipo enemigo 2/////////////////////////
 const movA2 = document.getElementById("movA2");             //1
@@ -297,6 +299,7 @@ var hola = function(aMov1,atype1,eMov11,etype11,eMov21,etype21,eMov31,etype31,eM
     return object;
 }
 function game(aMov,atype,eMov1,etype1,eMov2,etype2,eMov3,etype3,eMov4,etype4,aName,eName,aPkType,ePkType){
+    
     val = play()
     var refin = "a"
     if (val == 0){
@@ -312,18 +315,9 @@ function game(aMov,atype,eMov1,etype1,eMov2,etype2,eMov3,etype3,eMov4,etype4,aNa
         if((finalDmgAli <= 0)||((finalDmgEne <= 0)&&(finalDmgAli <= 0))){
             ganador(aName,aMov,eName,efectividadA);
             console.log("Ganaste")
-            ///////////////////////
             var conTeamE = ((parseInt(teamE.textContent)) - 1);
             setTimeout(function(){teamE.innerHTML = conTeamE;},7000);
-            ///////////////////////
-            
-
             refin = "si";
-            
-
-            
-            
-
 
         }else if((finalDmgEne <= 0)&&(finalDmgAli > 0)){
             setTimeout(function(){resultText.innerHTML=aName + " Utilizo " + aMov + " en " + eName ;},1000);
@@ -332,6 +326,8 @@ function game(aMov,atype,eMov1,etype1,eMov2,etype2,eMov3,etype3,eMov4,etype4,aNa
             setTimeout(function(){resultText.innerHTML = efectividadE; vidaAliada.innerHTML= "0";},7000);
             setTimeout(function(){resultText.innerHTML = aName + " se debilito";},9000);
             console.log("Perdiste")
+            PKB1.disabled = true
+            PKB1IMG.style.display = 'none';
             field1.style.display = 'block';
             refin = "no";
             
@@ -354,16 +350,9 @@ function game(aMov,atype,eMov1,etype1,eMov2,etype2,eMov3,etype3,eMov4,etype4,aNa
         if((finalDmgAli <= 0)||((finalDmgEne <= 0)&&(finalDmgAli <= 0))){
             ganador(aName,aMov,eName,efectividadA);
             console.log("Ganaste")
-            ///////////////////////
             var conTeamE = ((parseInt(teamE.textContent)) - 1);
-            console.log(conTeamE)
             setTimeout(function(){teamE.innerHTML = conTeamE;},7000);
-            ///////////////////////
-            
-
             refin = "si";
-    
-
 
         }else if((finalDmgEne <= 0)&&(finalDmgAli > 0)){
             setTimeout(function(){resultText.innerHTML=aName + " Utilizo " + aMov + " en " + eName ;},1000);
@@ -372,6 +361,8 @@ function game(aMov,atype,eMov1,etype1,eMov2,etype2,eMov3,etype3,eMov4,etype4,aNa
             setTimeout(function(){resultText.innerHTML = efectividadE; vidaAliada.innerHTML= "0";},7000);
             setTimeout(function(){resultText.innerHTML = aName + " se debilito";},9000);
             console.log("Perdiste")
+            PKB1.disabled = true
+            PKB1IMG.style.display = 'none';
             field1.style.display = 'block';
             refin = "no";
             
@@ -397,16 +388,10 @@ function game(aMov,atype,eMov1,etype1,eMov2,etype2,eMov3,etype3,eMov4,etype4,aNa
         if((finalDmgAli <= 0)||((finalDmgEne <= 0)&&(finalDmgAli <= 0))){
             ganador(aName,aMov,eName,efectividadA);
             console.log("Ganaste")
-            ///////////////////////
             var conTeamE = ((parseInt(teamE.textContent)) - 1);
-            setTimeout(function(){teamE.innerHTML = conTeamE;},7000);
-            ///////////////////////
-            
-
+            setTimeout(function(){teamE.innerHTML = conTeamE;},7000);            
             refin = "si";
             
-
-
         }else if((finalDmgEne <= 0)&&(finalDmgAli > 0)){
             setTimeout(function(){resultText.innerHTML=aName + " Utilizo " + aMov + " en " + eName ;},1000);
             setTimeout(function(){vidaEnemiga.innerHTML= finalDmgAli;resultText.innerHTML= efectividadA;},3000);
@@ -414,6 +399,8 @@ function game(aMov,atype,eMov1,etype1,eMov2,etype2,eMov3,etype3,eMov4,etype4,aNa
             setTimeout(function(){resultText.innerHTML = efectividadE; vidaAliada.innerHTML= "0";},7000);
             setTimeout(function(){resultText.innerHTML = aName + " se debilito";},9000);
             console.log("Perdiste")
+            PKB1.disabled = true
+            PKB1IMG.style.display = 'none';
             field1.style.display = 'block';
             refin = "no";
             
@@ -439,16 +426,10 @@ function game(aMov,atype,eMov1,etype1,eMov2,etype2,eMov3,etype3,eMov4,etype4,aNa
         if((finalDmgAli <= 0)||((finalDmgEne <= 0)&&(finalDmgAli <= 0))){
             ganador(aName,aMov,eName,efectividadA);
             console.log("Ganaste")
-            ///////////////////////
             var conTeamE = ((parseInt(teamE.textContent)) - 1);
-            setTimeout(function(){teamE.innerHTML = conTeamE;},7000);
-            ///////////////////////
-            
-
+            setTimeout(function(){teamE.innerHTML = conTeamE;},7000);            
             refin = "si";
             
-
-
         }else if((finalDmgEne <= 0)&&(finalDmgAli > 0)){
             setTimeout(function(){resultText.innerHTML=aName + " Utilizo " + aMov + " en " + eName ;},1000);
             setTimeout(function(){vidaEnemiga.innerHTML= finalDmgAli;resultText.innerHTML= efectividadA;},3000);
@@ -456,6 +437,8 @@ function game(aMov,atype,eMov1,etype1,eMov2,etype2,eMov3,etype3,eMov4,etype4,aNa
             setTimeout(function(){resultText.innerHTML = efectividadE; vidaAliada.innerHTML= "0";},7000);
             setTimeout(function(){resultText.innerHTML = aName + " se debilito";},9000);
             console.log("Perdiste")
+            PKB1.disabled = true
+            PKB1IMG.style.display = 'none';
             field1.style.display = 'block';
             refin = "no";
             
@@ -487,28 +470,28 @@ $(document).ready(function(){
     $("#FE5").css("display", "none");
     $("#FE6").css("display", "none");
     $("#pk1").click(function() {       
-        $("#field1").toggle(500);//Oculta el equipo puchamon
-        $("#pk1-img").toggle(500);//muestra el div del pk1-img
-        $("#FE2").css("display", "none");
-        $("#FE3").css("display", "none");
-        $("#FE4").css("display", "none");
-        $("#FE5").css("display", "none");
-        $("#FE6").css("display", "none");
+        $("#field1").css("display", "block");//Oculta el equipo puchamon
+        $("#pk1-img").css("display", "block");//muestra el div del pk1-img
+        $("#pk2-img").css("display", "none");
+        
     });
     $("#pk2").click(function() {       
-        $("#field1").toggle(500);
+        $("#field1").css("display", "block");//Oculta el equipo puchamon
+        $("#pk2-img").css("display", "block");//muestra el div del pk2-img
+        $("#pk1-img").css("display", "none");
+
     });
     $("#pk3").click(function() {       
-        $("#field1").toggle(500);
+        
     });
     $("#pk4").click(function() {       
-        $("#field1").toggle(500);
+        
     });
     $("#pk5").click(function() {       
-        $("#field1").toggle(500);
+        
     });
     $("#pk6").click(function() {       
-        $("#field1").toggle(500);
+        
     });
 });
 
