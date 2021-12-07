@@ -2,84 +2,94 @@
 {% load static %}
 {% block content %}
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="{% static 'app.js' %}"  defer></script>
+<script type="text/javascript" src="{% static 'app.js' %}" defer></script>
 
 <center>
-<div id="field2" class="row" style="padding: 20px;" > 
-    
-{% if poke_data %}
+    <div id="field2" class="row" style="padding: 20px;">
 
-<div id="pk1-img"  style="display: none;">
-    
-    <img class ="img-container" style="left: 230px;" src="{{equipoEnemigo.0.sprites}}">  <div id="eVida">5</div>
-    <img class = "img-container" style="right: 230px;" src="{{poke_data.0.sprites}}"><div id="aVida">5</div>
+        {% if poke_data %}
+            <img id="FE1" style="position: relative;" style="left: 230px;" src="{{equipoEnemigo.0.sprites}}">
+            <img id="FE2" style="position: relative;" style="left: 230px;" style="display: none;" src="{{equipoEnemigo.1.sprites}}">
+            <img id="FE3" style="position: relative;" style="left: 230px;" style="display: none;" src="{{equipoEnemigo.2.sprites}}">
+            <img id="FE4" style="position: relative;" style="left: 230px;" style="display: none;" src="{{equipoEnemigo.3.sprites}}">
+            <img id="FE5" style="position: relative;" style="left: 230px;" style="display: none;" src="{{equipoEnemigo.4.sprites}}">
+            <img id="FE6" style="position: relative;" style="left: 230px;" style="display: none;" src="{{equipoEnemigo.5.sprites}}">
 
-    <div id="skills">
-        <div>
-        <div id ="result">Seleccione un ataque </div>
-        <button id = "skill1" class="row"  onclick="hola(
+        <div id="pk1-img" style="display: none;">
+
+            
+            <div id="eVida">5</div>Pokemon disponibles: <div id="pokeTeamE">6</div>
+            <img id=FA1  style="right: 230px;" src="{{poke_data.0.sprites}}">
+            <div id="aVida">5</div>Pokemon disponibles:<div id="pokeTeamA">6</div>
+
+            <div id="skills">
+                <div>
+                    <div id="result">Seleccione un ataque </div>
+                    <button id="skill1" class="row"
+                        onclick="hola(
         '{{poke_data.0.mov1.name}}','{{poke_data.0.mov1.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.0.name}}','{{equipoEnemigo.0.name}}','{{poke_data.0.types}}','{{equipoEnemigo.0.types}}',result)">
-            {{poke_data.0.mov1.name}}-{{poke_data.0.mov1.type}}
-        </button>
-        
-        <button id = "skill2" class="row">
-            {{poke_data.0.mov2.name}}-{{poke_data.0.mov2.type}}
-        </button>
+                        {{poke_data.0.mov1.name}}-{{poke_data.0.mov1.type}}
+                    </button>
+
+                    <button id="skill2" class="row"
+                        onclick="hola(
+        '{{poke_data.0.mov2.name}}','{{poke_data.0.mov2.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.0.name}}','{{equipoEnemigo.0.name}}','{{poke_data.0.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data.0.mov2.name}}-{{poke_data.0.mov2.type}}
+                    </button>
+                </div>
+                <div>
+                    <button id="skill3" class="row"
+                        onclick="hola(
+        '{{poke_data.0.mov3.name}}','{{poke_data.0.mov3.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.0.name}}','{{equipoEnemigo.0.name}}','{{poke_data.0.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data.0.mov3.name}}-{{poke_data.0.mov3.type}}
+                    </button>
+                    <button id="skill4" class="row"
+                        onclick="hola(
+        '{{poke_data.0.mov4.name}}','{{poke_data.0.mov4.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.0.name}}','{{equipoEnemigo.0.name}}','{{poke_data.0.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data.0.mov4.name}}-{{poke_data.0.mov4.type}}
+                    </button>
+                </div>
+            </div>
         </div>
-        <div>
-        <button id = "skill3" class="row">
-            {{poke_data.0.mov3.name}}-{{poke_data.0.mov1.type}}
-        </button>
-        <button id = "skill4" class="row">
-            {{poke_data.0.mov4.name}}-{{poke_data.0.mov4.type}}
-        </button>
+
+
+
+
+
+
+
+
+        <div class="row" id="field1" style="display: block;">
+            <div class="container-article" style="margin:auto">
+                <div id="group-btn">
+                    <button id="pk1" class="row">
+                        <img src="{{poke_data.0.sprites}}">
+                    </button>
+                    <button id="pk2" type="button">
+                        <img src="{{poke_data.1.sprites}}">
+                    </button>
+                    <button id="pk3" type="button">
+                        <img src="{{poke_data.2.sprites}}">
+                    </button>
+                    <button id="pk4" type="button">
+                        <img src="{{poke_data2.0.sprites}}">
+                    </button>
+                    <button id="pk5" type="button">
+                        <img src="{{poke_data2.1.sprites}}">
+                    </button>
+                    <button id="pk6" type="button">
+                        <img src="{{poke_data2.2.sprites}}">
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
-
-
-
-
-
-
-
-<div class="row" id="field1" style="display: block;">
-<div class="container-article" style="margin:auto">
-<div id ="group-btn">
-    <button id = "pk1" class="row">
-        <img src="{{poke_data.0.sprites}}">
-    </button>
-    <button id = "pk2" type="button">
-        <img src="{{poke_data.1.sprites}}">
-    </button>
-    <button id = "pk3" type="button">
-        <img src="{{poke_data.2.sprites}}">
-    </button>
-    <button id = "pk4" type="button">
-        <img src="{{poke_data2.0.sprites}}">
-    </button>
-    <button id = "pk5" type="button">
-        <img src="{{poke_data2.1.sprites}}">
-    </button>
-    <button id = "pk6" type="button">
-        <img src="{{poke_data2.2.sprites}}">
-    </button>
-</div>
-</div>
-</div>
-</div>
 </center>
 
 
 
-    
-    {% endif %}
 
-
-
-
- 
+{% endif %}
 
 
 
@@ -88,6 +98,11 @@
 
 
 
-<script type="text/javascript" src="{% static 'app.js' %}"  defer></script>
+
+
+
+
+
+<script type="text/javascript" src="{% static 'app.js' %}" defer></script>
 
 {% endblock %}

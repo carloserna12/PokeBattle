@@ -478,3 +478,12 @@ img.profile{
 #result{
   height: 10vh;
 }
+
+#FA1{
+  position: relative;
+}
+
+#FE1{
+  position: relative;
+  left: 250px;
+}
