@@ -8,27 +8,35 @@
     <div id="field3" class="row" style="padding: 20px;">
 
         {% if poke_data %}
-            <img id="FE1" style="position: relative;" style="left: 230px;" src="{{equipoEnemigo.0.sprites}}">
-            <img id="FE2" style="position: relative;" style="left: 230px;" style="display: none;" src="{{equipoEnemigo.1.sprites}}">
-            <img id="FE3" style="position: relative;" style="left: 230px;" style="display: none;" src="{{equipoEnemigo.2.sprites}}">
-            <img id="FE4" style="position: relative;" style="left: 230px;" style="display: none;" src="{{equipoEnemigo.3.sprites}}">
-            <img id="FE5" style="position: relative;" style="left: 230px;" style="display: none;" src="{{equipoEnemigo.4.sprites}}">
-            <img id="FE6" style="position: relative;" style="left: 230px;" style="display: none;" src="{{equipoEnemigo.5.sprites}}">
-            
-            <div id="eVida">5</div>Pokemon disponibles: <div id="pokeTeamE">6</div>
-            <div id="result">Seleccione un ataque </div>
-            
-            <div id="pk1-img" style="display: none;">
+        <img id="FE1" style="position: relative;" style="left: 230px;" src="{{equipoEnemigo.0.sprites}}">
+        <img id="FE2" style="position: relative;" style="left: 230px;" style="display: none;"
+            src="{{equipoEnemigo.1.sprites}}">
+        <img id="FE3" style="position: relative;" style="left: 230px;" style="display: none;"
+            src="{{equipoEnemigo.2.sprites}}">
+        <img id="FE4" style="position: relative;" style="left: 230px;" style="display: none;"
+            src="{{equipoEnemigo.3.sprites}}">
+        <img id="FE5" style="position: relative;" style="left: 230px;" style="display: none;"
+            src="{{equipoEnemigo.4.sprites}}">
+        <img id="FE6" style="position: relative;" style="left: 230px;" style="display: none;"
+            src="{{equipoEnemigo.5.sprites}}">
 
-            <div id="aVida">5</div>Pokemon disponibles:<div id="pokeTeamA">6</div>
-            
-            
-            <img id=FA1  style="right: 230px;" src="{{poke_data.0.sprites}}">
-            
+        <div id="eVida">5</div>Pokemon disponibles: <div id="pokeTeamE">1</div>
+        <div id="result">Seleccione un ataque </div>
+        Pokemon disponibles:<div id="pokeTeamA">1</div>
+
+
+
+        <div id="pk1-img" style="display: none;">
+
+            <div id="aVida">5</div>
+
+
+            <img id=FA1 style="right: 230px;" src="{{poke_data.0.sprites}}">
+
 
             <div id="skills">
                 <div>
-                    
+
                     <button id="skill1" class="row"
                         onclick="hola(
         '{{poke_data.0.mov1.name}}','{{poke_data.0.mov1.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.0.name}}','{{equipoEnemigo.0.name}}','{{poke_data.0.types}}','{{equipoEnemigo.0.types}}',result)">
@@ -60,35 +68,35 @@
 
 
         <div id="pk2-img" style="display: none;">
-            <div id="aVida2">5</div>Pokemon disponibles:<div id="pokeTeamA">6</div>
-            
-            
-            <img id=FA2  style="right: 230px;" src="{{poke_data.1.sprites}}">
+            <div id="aVida2">5</div>
+
+
+            <img id=FA2 style="right: 230px;" src="{{poke_data.1.sprites}}">
 
             <div id="skills2">
                 <div>
-                    
+
                     <button id="skill1_2" class="row"
                         onclick="hola(
-        '{{poke_data.1.mov1.name}}','{{poke_data.1.mov1.type}}','{{equipoEnemigo.1.mov1.name}}','{{equipoEnemigo.1.mov1.type}}','{{equipoEnemigo.1.mov2.name}}','{{equipoEnemigo.1.mov2.type}}','{{equipoEnemigo.1.mov3.name}}','{{equipoEnemigo.1.mov3.type}}','{{equipoEnemigo.1.mov4.name}}','{{equipoEnemigo.1.mov4.type}}','{{poke_data.1.name}}','{{equipoEnemigo.1.name}}','{{poke_data.1.types}}','{{equipoEnemigo.1.types}}',result)">
+        '{{poke_data.1.mov1.name}}','{{poke_data.1.mov1.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.1.name}}','{{equipoEnemigo.0.name}}','{{poke_data.1.types}}','{{equipoEnemigo.0.types}}',result)">
                         {{poke_data.1.mov1.name}}-{{poke_data.1.mov1.type}}
                     </button>
 
                     <button id="skill2_2" class="row"
                         onclick="hola(
-        '{{poke_data.1.mov2.name}}','{{poke_data.1.mov2.type}}','{{equipoEnemigo.1.mov1.name}}','{{equipoEnemigo.1.mov1.type}}','{{equipoEnemigo.1.mov2.name}}','{{equipoEnemigo.1.mov2.type}}','{{equipoEnemigo.1.mov3.name}}','{{equipoEnemigo.1.mov3.type}}','{{equipoEnemigo.1.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.1.name}}','{{equipoEnemigo.1.name}}','{{poke_data.1.types}}','{{equipoEnemigo.1.types}}',result)">
+        '{{poke_data.1.mov2.name}}','{{poke_data.1.mov2.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.1.name}}','{{equipoEnemigo.0.name}}','{{poke_data.1.types}}','{{equipoEnemigo.0.types}}',result)">
                         {{poke_data.1.mov2.name}}-{{poke_data.1.mov2.type}}
                     </button>
                 </div>
                 <div>
                     <button id="skill3_2" class="row"
                         onclick="hola(
-        '{{poke_data.1.mov3.name}}','{{poke_data.1.mov3.type}}','{{equipoEnemigo.1.mov1.name}}','{{equipoEnemigo.1.mov1.type}}','{{equipoEnemigo.1.mov2.name}}','{{equipoEnemigo.1.mov2.type}}','{{equipoEnemigo.1.mov3.name}}','{{equipoEnemigo.1.mov3.type}}','{{equipoEnemigo.1.mov4.name}}','{{equipoEnemigo.1.mov4.type}}','{{poke_data.1.name}}','{{equipoEnemigo.1.name}}','{{poke_data.1.types}}','{{equipoEnemigo.1.types}}',result)">
+        '{{poke_data.1.mov3.name}}','{{poke_data.1.mov3.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.1.name}}','{{equipoEnemigo.0.name}}','{{poke_data.1.types}}','{{equipoEnemigo.0.types}}',result)">
                         {{poke_data.1.mov3.name}}-{{poke_data.1.mov3.type}}
                     </button>
                     <button id="skill4_2" class="row"
                         onclick="hola(
-        '{{poke_data.1.mov4.name}}','{{poke_data.1.mov4.type}}','{{equipoEnemigo.1.mov1.name}}','{{equipoEnemigo.1.mov1.type}}','{{equipoEnemigo.1.mov2.name}}','{{equipoEnemigo.1.mov2.type}}','{{equipoEnemigo.1.mov3.name}}','{{equipoEnemigo.1.mov3.type}}','{{equipoEnemigo.1.mov4.name}}','{{equipoEnemigo.1.mov4.type}}','{{poke_data.1.name}}','{{equipoEnemigo.1.name}}','{{poke_data.10.types}}','{{equipoEnemigo.1.types}}',result)">
+        '{{poke_data.1.mov4.name}}','{{poke_data.1.mov4.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.1.name}}','{{equipoEnemigo.0.name}}','{{poke_data.1.types}}','{{equipoEnemigo.0.types}}',result)">
                         {{poke_data.1.mov4.name}}-{{poke_data.1.mov4.type}}
                     </button>
                 </div>
@@ -97,10 +105,156 @@
 
 
 
+        <div id="pk3-img" style="display: none;">
+            <div id="aVida3">5</div>
+
+
+            <img id=FA3 style="right: 230px;" src="{{poke_data.2.sprites}}">
+
+            <div id="skills3">
+                <div>
+
+                    <button id="skill1_3" class="row"
+                        onclick="hola(
+        '{{poke_data.2.mov1.name}}','{{poke_data.2.mov1.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.2.name}}','{{equipoEnemigo.0.name}}','{{poke_data.2.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data.2.mov1.name}}-{{poke_data.2.mov1.type}}
+                    </button>
+
+                    <button id="skill2_3" class="row"
+                        onclick="hola(
+        '{{poke_data.2.mov2.name}}','{{poke_data.2.mov2.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.2.name}}','{{equipoEnemigo.0.name}}','{{poke_data.2.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data.2.mov2.name}}-{{poke_data.2.mov2.type}}
+                    </button>
+                </div>
+                <div>
+                    <button id="skill3_3" class="row"
+                        onclick="hola(
+        '{{poke_data.2.mov3.name}}','{{poke_data.2.mov3.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.2.name}}','{{equipoEnemigo.0.name}}','{{poke_data.2.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data.2.mov3.name}}-{{poke_data.2.mov3.type}}
+                    </button>
+                    <button id="skill4_3" class="row"
+                        onclick="hola(
+        '{{poke_data.2.mov4.name}}','{{poke_data.2.mov4.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.2.name}}','{{equipoEnemigo.0.name}}','{{poke_data.2.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data.2.mov4.name}}-{{poke_data.2.mov4.type}}
+                    </button>
+                </div>
+            </div>
+        </div>
 
 
 
+        <div id="pk4-img" style="display: none;">
 
+            <div id="aVida4">5</div>
+
+
+            <img id=FA4 style="right: 230px;" src="{{poke_data2.0.sprites}}">
+
+
+            <div id="skills4">
+                <div>
+
+                    <button id="skill1_4" class="row"
+                        onclick="hola(
+        '{{poke_data2.0.mov1.name}}','{{poke_data2.0.mov1.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data2.0.name}}','{{equipoEnemigo.0.name}}','{{poke_data2.0.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data2.0.mov1.name}}-{{poke_data2.0.mov1.type}}
+                    </button>
+
+                    <button id="skill2_4" class="row"
+                        onclick="hola(
+        '{{poke_data2.0.mov2.name}}','{{poke_data2.0.mov2.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data2.0.name}}','{{equipoEnemigo.0.name}}','{{poke_data2.0.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data2.0.mov2.name}}-{{poke_data2.0.mov2.type}}
+                    </button>
+                </div>
+                <div>
+                    <button id="skill3_4" class="row"
+                        onclick="hola(
+        '{{poke_data2.0.mov3.name}}','{{poke_data2.0.mov3.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data2.0.name}}','{{equipoEnemigo.0.name}}','{{poke_data2.0.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data2.0.mov3.name}}-{{poke_data2.0.mov3.type}}
+                    </button>
+                    <button id="skill4_4" class="row"
+                        onclick="hola(
+        '{{poke_data2.0.mov4.name}}','{{poke_data2.0.mov4.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data2.0.name}}','{{equipoEnemigo.0.name}}','{{poke_data2.0.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data2.0.mov4.name}}-{{poke_data2.0.mov4.type}}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="pk5-img" style="display: none;">
+            <div id="aVida5">5</div>
+
+
+            <img id=FA5 style="right: 230px;" src="{{poke_data2.1.sprites}}">
+
+            <div id="skills5">
+                <div>
+
+                    <button id="skill1_5" class="row"
+                        onclick="hola(
+        '{{poke_data2.1.mov1.name}}','{{poke_data2.1.mov1.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data2.1.name}}','{{equipoEnemigo.0.name}}','{{poke_data2.1.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data2.1.mov1.name}}-{{poke_data2.1.mov1.type}}
+                    </button>
+
+                    <button id="skill2_5" class="row"
+                        onclick="hola(
+        '{{poke_data2.1.mov2.name}}','{{poke_data2.1.mov2.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data2.1.name}}','{{equipoEnemigo.0.name}}','{{poke_data2.1.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data2.1.mov2.name}}-{{poke_data2.1.mov2.type}}
+                    </button>
+                </div>
+                <div>
+                    <button id="skill3_5" class="row"
+                        onclick="hola(
+        '{{poke_data2.1.mov3.name}}','{{poke_data2.1.mov3.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data2.1.name}}','{{equipoEnemigo.0.name}}','{{poke_data2.1.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data2.1.mov3.name}}-{{poke_data2.1.mov3.type}}
+                    </button>
+                    <button id="skill4_5" class="row"
+                        onclick="hola(
+        '{{poke_data2.1.mov4.name}}','{{poke_data2.1.mov4.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data2.1.name}}','{{equipoEnemigo.0.name}}','{{poke_data2.1.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data2.1.mov4.name}}-{{poke_data2.1.mov4.type}}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="pk6-img" style="display: none;">
+            <div id="aVida6">5</div>
+
+
+            <img id=FA6 style="right: 230px;" src="{{poke_data2.2.sprites}}">
+
+            <div id="skills6">
+                <div>
+
+                    <button id="skill1_6" class="row"
+                        onclick="hola(
+        '{{poke_data2.2.mov1.name}}','{{poke_data2.2.mov1.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data2.2.name}}','{{equipoEnemigo.0.name}}','{{poke_data2.2.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data2.2.mov1.name}}-{{poke_data2.2.mov1.type}}
+                    </button>
+
+                    <button id="skill2_6" class="row"
+                        onclick="hola(
+        '{{poke_data2.2.mov2.name}}','{{poke_data2.2.mov2.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data2.2.name}}','{{equipoEnemigo.0.name}}','{{poke_data2.2.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data2.2.mov2.name}}-{{poke_data2.2.mov2.type}}
+                    </button>
+                </div>
+                <div>
+                    <button id="skill3_6" class="row"
+                        onclick="hola(
+        '{{poke_data2.2.mov3.name}}','{{poke_data2.2.mov3.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data2.2.name}}','{{equipoEnemigo.0.name}}','{{poke_data2.2.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data2.2.mov3.name}}-{{poke_data2.2.mov3.type}}
+                    </button>
+                    <button id="skill4_6" class="row"
+                        onclick="hola(
+        '{{poke_data2.2.mov4.name}}','{{poke_data2.2.mov4.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data2.2.name}}','{{equipoEnemigo.0.name}}','{{poke_data2.2.types}}','{{equipoEnemigo.0.types}}',result)">
+                        {{poke_data2.2.mov4.name}}-{{poke_data2.2.mov4.type}}
+                    </button>
+                </div>
+            </div>
+        </div>
 
         <div class="row" id="field1" style="display: block;">
             <div class="container-article" style="margin:auto">
@@ -129,6 +283,8 @@
     </div>
 </center>
 
+<div id="field4" class="row" style="display: none;">Felicidades Ganaste</div>
+<div id="field5" class="row" style="display: none;">Perdiste, intenta de nuevo</div>
 
 
 
@@ -136,9 +292,8 @@
 
 
 
+<div id="equipo2Al4" style="display: none;">
 
-<div id="equipo2Al4">
-    
     <!-- equipo2 -->
     <div id="movA2">{{poke_data.1.mov1.name}}</div>
     <div id="typeA2">{{poke_data.1.mov1.type}}</div>
@@ -237,7 +392,7 @@
 
     <div id="PokeTypeE5">{{equipoEnemigo.4.types}}</div>
 
-            <!-- equipo6 -->
+    <!-- equipo6 -->
     <div id="movA6">{{poke_data.5.mov1.name}}</div>
     <div id="typeA6">{{poke_data.5.mov1.type}}</div>
 
