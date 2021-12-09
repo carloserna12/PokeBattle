@@ -197,6 +197,13 @@ def batalla(request,pk):
     hiperPocion = query.hiperPocion
     maxPocion = query.maxPocion
 
+    if((pk >= 10) and (pk <= 17)):
+        vida = 5    
+    elif((pk >= 1) and (pk <= 9)):
+        vida = 7
+    else:
+        vida = 14
+            
     context = {
         'equipoEnemigo':equipoEnemigo,
         'enemigo':enemigo,
@@ -206,14 +213,26 @@ def batalla(request,pk):
         'agua':agua,
         'pocion':pocion,
         'hiperPocion':hiperPocion,
-        'maxPocion':maxPocion
+        'maxPocion':maxPocion,
+        'vida':vida
     }
     
     return render(request, 'social/batalla.html',context)
 
-def finalView(request,pk,wl):
+def finalView(request,pk,wl,a,p,h,m):
+    print(a)
+    print(p)
+    print(h)
+    print(m)
     perfilMio = Profile.objects.get(user=request.user)
-    perfilMio.agua
+    perfilMio.agua = a
+    perfilMio.pocion = p
+    perfilMio.hiperPocion = h
+    perfilMio.maxPocion = m
+    perfilMio.save()
+
+
+
     if(wl == 0):
         print("perdiste nub")
     else:

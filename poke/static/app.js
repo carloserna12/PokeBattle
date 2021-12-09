@@ -7,6 +7,11 @@ const field4 = document.getElementById('field4');
 const field3 = document.getElementById('field3');
 const field5 = document.getElementById('field5');
 
+const agua = document.getElementById('agua');
+const pocion = document.getElementById('pocion');
+const hiperPocion = document.getElementById('hiperPocion');
+const maxPocion = document.getElementById('maxPocion');
+
 const FE1 = document.getElementById('FE1');
 const PKB1 = document.getElementById('pk1');
 const PKB1IMG = document.getElementById('pk1-img');
@@ -260,10 +265,18 @@ function calcularEfectividad(dmgP){
     }
 }
 
+
+    
+
+
 var hola = function(aMov1,atype1,eMov11,etype11,eMov21,etype21,eMov31,etype31,eMov41,etype41,aName1,eName1,aPkType1,ePkType1,object){
     if((teamE.textContent) == "0"){
+
         field3.style.display = 'none';
         field4.style.display = 'block';
+       
+
+        
     }
     
     var conTeamE = (parseInt(teamE.textContent));
@@ -659,7 +672,7 @@ $(document).ready(function(){
     $("#aVida4").css("display", "none");
     $("#aVida5").css("display", "none");
     $("#aVida6").css("display", "none");
-
+    
     $("#pk1").click(function() {       
         $("#field1").css("display", "block");//Oculta el equipo puchamon
 
@@ -759,6 +772,155 @@ $(document).ready(function(){
         $("#aVida4").css("display", "none");
         $("#aVida5").css("display", "none");
     });
+    $("#agua-img").click(function(){  
+        if(agua.textContent == "0"){
+            console.log("compre pociones bb")
+        }else {
+            var pepe = search()
+            const vidaAliada = document.getElementById(pepe)
+            if(vidaAliada == null){
+                console.log("seleccione un pokemon")
+            }else if(vidaAliada.textContent == "5"){
+                HpCurada = (parseInt(vidaAliada.textContent)) + 0
+                console.log(vidaAliada.textContent)
+                vidaAliada.innerHTML= HpCurada;            
+            }else {
+                HpCurada = (parseInt(vidaAliada.textContent)) + 1
+                if(HpCurada > 5){
+                    vidaAliada.innerHTML= 5;
+                }else{
+                    vidaAliada.innerHTML= HpCurada;   
+                }
+                
+            }
+            gasto = parseInt (agua.textContent)
+            agua.innerHTML = gasto - 1    
+            var aguas = agua.textContent;
+            console.log(aguas)
+            var pocions = pocion.textContent;
+            console.log(pocions)
+            var hipers = hiperPocion.textContent;
+            console.log(hipers)
+            var maxs = maxPocion.textContent;
+            console.log(maxs)
+            var strLink = "1/"+aguas+"/"+pocions+"/"+hipers+"/"+maxs;
+            console.log("entro aqui?")
+            console.log(strLink)
+            document.getElementById("field4").setAttribute("href",strLink);
+        }
+        
+    });
+    $("#pocion-img").click(function(){
+        if(pocion.textContent == "0"){
+            console.log("compre pociones bb")
+        }else {
+            var pepe = search()
+            const vidaAliada = document.getElementById(pepe)
+            if(vidaAliada == null){
+                console.log("seleccione un pokemon")
+            }else if(vidaAliada.textContent == "5"){
+                HpCurada = (parseInt(vidaAliada.textContent)) + 0
+                console.log(vidaAliada.textContent)
+                vidaAliada.innerHTML= HpCurada;            
+            }else {
+                HpCurada = (parseInt(vidaAliada.textContent)) + 2
+                if(HpCurada > 5){
+                    vidaAliada.innerHTML= 5;
+                }else{
+                    vidaAliada.innerHTML= HpCurada;   
+                }
+                
+                
+            }
+            gasto = parseInt (pocion.textContent)
+            pocion.innerHTML = gasto - 1    
+            var aguas = agua.textContent;
+            console.log(aguas)
+            var pocions = pocion.textContent;
+            console.log(pocions)
+            var hipers = hiperPocion.textContent;
+            console.log(hipers)
+            var maxs = maxPocion.textContent;
+            console.log(maxs)
+            var strLink = "1/"+aguas+"/"+pocions+"/"+hipers+"/"+maxs;
+            console.log("entro aqui?")
+            console.log(strLink)
+            document.getElementById("field4").setAttribute("href",strLink);
+        }
+        
+      });
+    $("#hiper-img").click(function(){ 
+        if(hiperPocion.textContent == "0"){
+            console.log("compre pociones bb")
+        }else {
+            var pepe = search()
+            const vidaAliada = document.getElementById(pepe)
+            if(vidaAliada == null){
+                console.log("seleccione un pokemon")
+            }else if(vidaAliada.textContent == "5"){
+                HpCurada = (parseInt(vidaAliada.textContent)) + 0
+                console.log(vidaAliada.textContent)
+                vidaAliada.innerHTML= HpCurada;            
+            }else {
+                HpCurada = (parseInt(vidaAliada.textContent)) + 4
+                if(HpCurada > 5){
+                    vidaAliada.innerHTML= 5;
+                }else{
+                    vidaAliada.innerHTML= HpCurada;   
+                }
+                
+                
+            }
+            gasto = parseInt (hiperPocion.textContent)
+            hiperPocion.innerHTML = gasto - 1    
+            var aguas = agua.textContent;
+            console.log(aguas)
+            var pocions = pocion.textContent;
+            console.log(pocions)
+            var hipers = hiperPocion.textContent;
+            console.log(hipers)
+            var maxs = maxPocion.textContent;
+            console.log(maxs)
+            var strLink = "1/"+aguas+"/"+pocions+"/"+hipers+"/"+maxs;
+            console.log("entro aqui?")
+            console.log(strLink)
+            document.getElementById("field4").setAttribute("href",strLink);
+        }
+     });
+    $("#max-img").click(function() { 
+        if(maxPocion.textContent == "0"){
+            console.log("compre pociones bb")
+        }else {
+            var pepe = search()
+            const vidaAliada = document.getElementById(pepe)
+            if(vidaAliada == null){
+                console.log("seleccione un pokemon")
+            }else if(vidaAliada.textContent == "5"){
+                HpCurada = (parseInt(vidaAliada.textContent)) + 0
+                console.log(vidaAliada.textContent)
+                vidaAliada.innerHTML= HpCurada;            
+            }else {
+                HpCurada = (parseInt(vidaAliada.textContent)) + 5
+                console.log(vidaAliada.textContent)
+                vidaAliada.innerHTML= 5;
+                
+            }
+            gasto = parseInt (maxPocion.textContent)
+            maxPocion.innerHTML = gasto - 1    
+            var aguas = agua.textContent;
+            console.log(aguas)
+            var pocions = pocion.textContent;
+            console.log(pocions)
+            var hipers = hiperPocion.textContent;
+            console.log(hipers)
+            var maxs = maxPocion.textContent;
+            console.log(maxs)
+            var strLink = "1/"+aguas+"/"+pocions+"/"+hipers+"/"+maxs;
+            console.log("entro aqui?")
+            console.log(strLink)
+            document.getElementById("field4").setAttribute("href",strLink);
+        }
+     });
 });
 
 
@@ -783,3 +945,6 @@ function ganador(aNameG,aMovG,eNameG,efectividadG){
     setTimeout(function(){resultText.innerHTML = efectividadG; vidaEnemiga.innerHTML= "0";},3000);
     setTimeout(function(){resultText.innerHTML = eNameG + " se debilito";},5000);
 }
+
+
+
