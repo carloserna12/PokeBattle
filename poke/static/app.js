@@ -6,6 +6,7 @@ const field1 = document.getElementById('field1');
 const field4 = document.getElementById('field4');
 const field3 = document.getElementById('field3');
 const field5 = document.getElementById('field5');
+const setVida = document.getElementById('setVida')
 
 const agua = document.getElementById('agua');
 const pocion = document.getElementById('pocion');
@@ -291,13 +292,25 @@ var hola = function(aMov1,atype1,eMov11,etype11,eMov21,etype21,eMov31,etype31,eM
         case 6:
             if(teamA.textContent == "0"){
                 setTimeout(function(){field3.style.display = 'none';},13000);
-                setTimeout(function(){field5.style.display = 'block';},13000);
+                setTimeout(function(){field4.style.display = 'block';},13000);
+                var aguas = agua.textContent;
+                console.log(aguas)
+                var pocions = pocion.textContent;
+                console.log(pocions)
+                var hipers = hiperPocion.textContent;
+                console.log(hipers)
+                var maxs = maxPocion.textContent;
+                console.log(maxs)
+                var strLink = "0/"+aguas+"/"+pocions+"/"+hipers+"/"+maxs;
+                console.log("entro aqui?")
+                console.log(strLink)
+                document.getElementById("field4").setAttribute("href",strLink);
             }
             win = game(aMov1,atype1,eMov11,etype11,eMov21,etype21,eMov31,etype31,eMov41,etype41,aName1,eName1,aPkType1,ePkType1)
 
             if(win=="si"){
                 setTimeout(function(){FE1.style.display='none';},9000); 
-                setTimeout(function(){vidaEnemiga.innerHTML= "5"; },11000);
+                setTimeout(function(){vidaEnemiga.innerHTML= setVida.textContent; },11000);
                 setTimeout(function(){FE2.style.display = 'block';},11000); 
                 
             }
@@ -307,11 +320,23 @@ var hola = function(aMov1,atype1,eMov11,etype11,eMov21,etype21,eMov31,etype31,eM
             
             if(teamA.textContent == "0"){
                 setTimeout(function(){field3.style.display = 'none';},13000);
-                setTimeout(function(){field5.style.display = 'block';},13000);
+                setTimeout(function(){field4.style.display = 'block';},13000);
+                var aguas = agua.textContent;
+                console.log(aguas)
+                var pocions = pocion.textContent;
+                console.log(pocions)
+                var hipers = hiperPocion.textContent;
+                console.log(hipers)
+                var maxs = maxPocion.textContent;
+                console.log(maxs)
+                var strLink = "0/"+aguas+"/"+pocions+"/"+hipers+"/"+maxs;
+                console.log("entro aqui?")
+                console.log(strLink)
+                document.getElementById("field4").setAttribute("href",strLink);
             }
             if(win=="si"){
                 setTimeout(function(){FE2.style.display='none';},9000); 
-                setTimeout(function(){vidaEnemiga.innerHTML= "5"; },10000);
+                setTimeout(function(){vidaEnemiga.innerHTML= setVida.textContent; },10000);
                 setTimeout(function(){FE3.style.display = 'block';},11000);  
                 
             }
@@ -320,11 +345,23 @@ var hola = function(aMov1,atype1,eMov11,etype11,eMov21,etype21,eMov31,etype31,eM
             win = game(aMov1,atype1,(movE3_1.textContent),(type3_1.textContent),(movE3_2.textContent),(type3_2.textContent),(movE3_3.textContent),(type3_3.textContent),(movE3_4.textContent),(type3_4.textContent),aName1,(nombreE3.textContent),aPkType1,(PokeTypeE3.textContent))
             if(teamA.textContent == "0"){
                 setTimeout(function(){field3.style.display = 'none';},13000);
-                setTimeout(function(){field5.style.display = 'block';},13000);
+                setTimeout(function(){field4.style.display = 'block';},13000);
+                var aguas = agua.textContent;
+                console.log(aguas)
+                var pocions = pocion.textContent;
+                console.log(pocions)
+                var hipers = hiperPocion.textContent;
+                console.log(hipers)
+                var maxs = maxPocion.textContent;
+                console.log(maxs)
+                var strLink = "0/"+aguas+"/"+pocions+"/"+hipers+"/"+maxs;
+                console.log("entro aqui?")
+                console.log(strLink)
+                document.getElementById("field4").setAttribute("href",strLink);
             }
             if(win=="si"){
                 setTimeout(function(){FE3.style.display='none';},9000); 
-                setTimeout(function(){vidaEnemiga.innerHTML= "5"; },10000);
+                setTimeout(function(){vidaEnemiga.innerHTML= setVida.textContent; },10000);
                 setTimeout(function(){FE4.style.display = 'block';},11000);  
                 
             }
@@ -333,12 +370,24 @@ var hola = function(aMov1,atype1,eMov11,etype11,eMov21,etype21,eMov31,etype31,eM
             win = game(aMov1,atype1,(movE4_1.textContent),(type4_1.textContent),(movE4_2.textContent),(type4_2.textContent),(movE4_3.textContent),(type4_3.textContent),(movE4_4.textContent),(type4_4.textContent),aName1,(nombreE4.textContent),aPkType1,(PokeTypeE4.textContent))
             if(teamA.textContent == "0"){
                 setTimeout(function(){field3.style.display = 'none';},13000);
-                setTimeout(function(){field5.style.display = 'block';},13000);
+                setTimeout(function(){field4.style.display = 'block';},13000);
+                var aguas = agua.textContent;
+                console.log(aguas)
+                var pocions = pocion.textContent;
+                console.log(pocions)
+                var hipers = hiperPocion.textContent;
+                console.log(hipers)
+                var maxs = maxPocion.textContent;
+                console.log(maxs)
+                var strLink = "1/"+aguas+"/"+pocions+"/"+hipers+"/"+maxs;
+                console.log("entro aqui?")
+                console.log(strLink)
+                document.getElementById("field4").setAttribute("href",strLink);
             }
             
             if(win=="si"){
                 setTimeout(function(){FE4.style.display='none';},9000); 
-                setTimeout(function(){vidaEnemiga.innerHTML= "5"; },10000);
+                setTimeout(function(){vidaEnemiga.innerHTML= setVida.textContent; },10000);
                 setTimeout(function(){FE5.style.display = 'block';},11000);  
             }
             break;
@@ -346,11 +395,23 @@ var hola = function(aMov1,atype1,eMov11,etype11,eMov21,etype21,eMov31,etype31,eM
             win = game(aMov1,atype1,(movE5_1.textContent),(type5_1.textContent),(movE5_2.textContent),(type5_2.textContent),(movE5_3.textContent),(type5_3.textContent),(movE5_4.textContent),(type5_4.textContent),aName1,(nombreE5.textContent),aPkType1,(PokeTypeE5.textContent))
             if(teamA.textContent == "0"){
                 setTimeout(function(){field3.style.display = 'none';},13000);
-                setTimeout(function(){field5.style.display = 'block';},13000);
+                setTimeout(function(){field4.style.display = 'block';},13000);
+                var aguas = agua.textContent;
+                console.log(aguas)
+                var pocions = pocion.textContent;
+                console.log(pocions)
+                var hipers = hiperPocion.textContent;
+                console.log(hipers)
+                var maxs = maxPocion.textContent;
+                console.log(maxs)
+                var strLink = "0/"+aguas+"/"+pocions+"/"+hipers+"/"+maxs;
+                console.log("entro aqui?")
+                console.log(strLink)
+                document.getElementById("field4").setAttribute("href",strLink);
             }
             if(win=="si"){
                 setTimeout(function(){FE5.style.display='none';},9000); 
-                setTimeout(function(){vidaEnemiga.innerHTML= "5"; },10000);
+                setTimeout(function(){vidaEnemiga.innerHTML= setVida.textContent; },10000);
                 setTimeout(function(){FE6.style.display = 'block';},11000); 
             }
             break;
@@ -359,12 +420,24 @@ var hola = function(aMov1,atype1,eMov11,etype11,eMov21,etype21,eMov31,etype31,eM
             win = game(aMov1,atype1,(movE6_1.textContent),(type6_1.textContent),(movE6_2.textContent),(type6_2.textContent),(movE6_3.textContent),(type6_3.textContent),(movE6_4.textContent),(type6_4.textContent),aName1,(nombreE6.textContent),aPkType1,(PokeTypeE6.textContent))
             if(teamA.textContent == "0"){
                 setTimeout(function(){field3.style.display = 'none';},9000);
-                setTimeout(function(){field5.style.display = 'block';},10000);
+                setTimeout(function(){field4.style.display = 'block';},10000);
+                var aguas = agua.textContent;
+                console.log(aguas)
+                var pocions = pocion.textContent;
+                console.log(pocions)
+                var hipers = hiperPocion.textContent;
+                console.log(hipers)
+                var maxs = maxPocion.textContent;
+                console.log(maxs)
+                var strLink = "0/"+aguas+"/"+pocions+"/"+hipers+"/"+maxs;
+                console.log("entro aqui?")
+                console.log(strLink)
+                document.getElementById("field4").setAttribute("href",strLink);
             }
             
             if(win=="si"){
                 setTimeout(function(){FE6.style.display='none';},9000); 
-                setTimeout(function(){vidaEnemiga.innerHTML= "5"; },10000);
+                setTimeout(function(){vidaEnemiga.innerHTML= setVida.textContent; },10000);
                 setTimeout(function(){resultText.innerHTML= 'Felicidades ganaste';},11000); 
 
                 setTimeout(function(){field3.style.display = 'none';},13000);

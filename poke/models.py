@@ -23,6 +23,7 @@ class Profile(models.Model):
     image_pokemon5 = models.CharField(max_length=1500,default='/media/defectimg.png')
     image_pokemon6 = models.CharField(max_length=1500,default='/media/defectimg.png')
 
+    honor = models.IntegerField(default=0)
     victorias = models.IntegerField(default=0)
     saldo = models.IntegerField(default=0)
 

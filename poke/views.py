@@ -47,13 +47,14 @@ def profile(request, username=None):
             id_master = user.id
             a = Profile.objects.get(user_id=id_master)
             victCurrent = a.victorias
+            honor = a.honor
             saldo = a.saldo
             posts = user.posts.all()
             equipoCompleto = extraer_de_db(a)
             poke_data = equipoCompleto[0]
             poke_data2 = equipoCompleto[1]
 
-            return render(request, 'social/profile.html',{'user':user,'posts':posts,'poke_data':poke_data,'poke_data2':poke_data2,'victCurrent':str(victCurrent),'saldo':str(saldo)})
+            return render(request, 'social/profile.html',{'user':user,'posts':posts,'poke_data':poke_data,'poke_data2':poke_data2,'victCurrent':str(victCurrent),'saldo':str(saldo),'honor':str(honor)})
 
         else: 
             posts = current_user.posts.all()
@@ -67,6 +68,7 @@ def profile(request, username=None):
             id_master = user.id
             a = Profile.objects.get(user_id=id_master)
             victCurrent = a.victorias
+            honor = a.honor
             saldo = a.saldo
             print("entro aqui")
             print(victCurrent)
@@ -76,7 +78,7 @@ def profile(request, username=None):
             poke_data = equipoCompleto[0]
             poke_data2 = equipoCompleto[1]
 
-            return render(request, 'social/profile.html',{'user':user,'posts':posts,'poke_data':poke_data,'poke_data2':poke_data2,'victCurrent':str(victCurrent),'saldo':"privado"})
+            return render(request, 'social/profile.html',{'user':user,'posts':posts,'poke_data':poke_data,'poke_data2':poke_data2,'victCurrent':str(victCurrent),'saldo':"privado",'honor':"privado"})
         else:
             
             posts = current_user.posts.all()
@@ -85,10 +87,11 @@ def profile(request, username=None):
             poke_data = equipoCompleto[0]
             poke_data2 = equipoCompleto[1]
             victCurrent = query.victorias
+            honor = query.honor
             saldo = query.saldo
             
         
-        return render(request, 'social/profile.html',{'user':user,'posts':posts,'poke_data':poke_data,'poke_data2':poke_data2,'victCurrent':str(victCurrent),'saldo':str(saldo)})
+        return render(request, 'social/profile.html',{'user':user,'posts':posts,'poke_data':poke_data,'poke_data2':poke_data2,'victCurrent':str(victCurrent),'saldo':str(saldo),'honor':str(honor)})
 
 
 def index(request):
@@ -220,10 +223,6 @@ def batalla(request,pk):
     return render(request, 'social/batalla.html',context)
 
 def finalView(request,pk,wl,a,p,h,m):
-    print(a)
-    print(p)
-    print(h)
-    print(m)
     perfilMio = Profile.objects.get(user=request.user)
     perfilMio.agua = a
     perfilMio.pocion = p
@@ -234,12 +233,23 @@ def finalView(request,pk,wl,a,p,h,m):
 
 
     if(wl == 0):
+        context = {
+                'imagenPremio':"",
+                'nombrePremio':"Mejor suerte para la proxima",
+                'numeroPremio':""}
+        
         print("perdiste nub")
+        return render(request,'social/letreroFinal.html',context)
+        
     else:
         
         victorias = perfilMio.victorias
         saldo = perfilMio.saldo
         perfilMio.victorias = victorias + 1
+
+        honor = perfilMio.honor
+        perfilMio.honor = honor + 1
+
 
         listaPremiosFacil = [1,1,1,1,1,1,1,1,1,1,
                         6,6,6,6,6,6,6,6,6,6,
