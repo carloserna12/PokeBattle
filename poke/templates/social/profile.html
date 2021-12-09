@@ -6,23 +6,23 @@
 <div class="profile">
 	<img src="{{user.profile.image.url}}">
 	<h2>@{{user.username}}</h2>
-	<button><a class="follow-button" href="#">Follow</a></button>
+	<!-- <button><a class="follow-button" href="#">Follow</a></button> -->
 </div>
 <!-- Follow items -->
 <div class="follow">
 	<div>
 		<h5>Victorias</h5>
+		{% if victCurrent %}
+		<div>{{victCurrent}}</div>
+		{% endif %}
+	</div>
+	
+	<div>
+		<h5>Saldo</h5>
+		{% if saldo %}
+		<div>{{saldo}}<img  src="/media/perla.png"></div>
+		{% endif %}
 		
-		<p>0</p>
-	</div>
-	<div>
-		<h5>Seguidores</h5>
-		<p>0</p>
-
-	</div>
-	<div>
-		<h5>Derrotas</h5>
-		<p>0</p>
 	</div>
 
 </div>

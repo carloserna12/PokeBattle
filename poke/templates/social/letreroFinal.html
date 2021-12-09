@@ -1,0 +1,9 @@
+{% extends 'social/layout.html'%}
+{% load static %}
+{% block content %}
+
+{% if imagenPremio %}  
+<img  src="/media/{{imagenPremio}}"> {{nombrePremio}}x1
+{% endif %}
+<img  src="/media/perla.png">Perla x{{numeroPremio}}
+{% endblock %}

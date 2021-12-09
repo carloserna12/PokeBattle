@@ -44,7 +44,7 @@
 			{% if request.user.is_authenticated %}
 			<a class="profile" href="{% url 'profile' request.user.username %}">Mi Perfil</a>
 			<a class="profile" href="{% url 'combates' %}">Combates</a>
-			<a class="new" href="{% url 'team' %}">Generar equipo</a>
+			<a class="new" href="{% url 'team' %}">Mi equipo</a>
 			
 			{% endif %}
 		</nav>

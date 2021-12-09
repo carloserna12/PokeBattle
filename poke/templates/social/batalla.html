@@ -22,7 +22,7 @@
 
         <div id="eVida">5</div>Pokemon disponibles: <div id="pokeTeamE">1</div>
         <div id="result">Seleccione un ataque </div>
-        Pokemon disponibles:<div id="pokeTeamA">1</div>
+        Pokemon disponibles:<div id="pokeTeamA">6</div>
 
 
 
@@ -280,10 +280,29 @@
                 </div>
             </div>
         </div>
+
+        <div id="items">
+            <div id="group-item">
+                <button id="agua-img" class="row">
+                    <img src="/media/fresh_water.png"><div id ="agua">{{ agua }}</div>
+                </button>
+                <button id="pocion-img" type="button">
+                    <img src="/media/super_potion.png"><div id="pocion">{{ pocion }}</div>
+                </button>
+                <button id="hiper-img" type="button">
+                    <img src="/media/hyper_potion.png"><div id="hiperPocion">{{hiperPocion }}</div>
+                </button>
+                <button id="max-img" type="button">
+                    <img src="/media/max_potion.png"><div id="maxPocion">{{ maxPocion }}</div>
+                </button>
+            </div>
+        </div>
     </div>
 </center>
 
-<div id="field4" class="row" style="display: none;">Felicidades Ganaste</div>
+<div><a id="field4" class="row" style="display: block;" href="1">Felicidades ganaste - Siguiente-></a> 
+    
+</div>
 <div id="field5" class="row" style="display: none;">Perdiste, intenta de nuevo</div>
 
 

@@ -38,37 +38,45 @@ def profile(request, username=None):
     current_user = request.user
     query = Profile.objects.get(user=request.user)
     a = query.equip
+    
+    
+ 
     if a == "0":
         if username and username != current_user.username:
             user = User.objects.get(username=username)
             id_master = user.id
             a = Profile.objects.get(user_id=id_master)
-
+            victCurrent = a.victorias
+            saldo = a.saldo
             posts = user.posts.all()
             equipoCompleto = extraer_de_db(a)
             poke_data = equipoCompleto[0]
             poke_data2 = equipoCompleto[1]
 
-            return render(request, 'social/profile.html',{'user':user,'posts':posts,'poke_data':poke_data,'poke_data2':poke_data2})
+            return render(request, 'social/profile.html',{'user':user,'posts':posts,'poke_data':poke_data,'poke_data2':poke_data2,'victCurrent':str(victCurrent),'saldo':str(saldo)})
 
         else: 
             posts = current_user.posts.all()
             user = current_user
-            context = {'user':user,'posts':posts,'poke_data':None,'poke_data2':None}
+
+            context = {'user':user,'posts':posts,'poke_data':None,'poke_data2':None,'victCurrent':"0",'saldo':"Privado"}
             return render(request, 'social/profile.html',context)
     else:   
         if username and username != current_user.username:
             user = User.objects.get(username=username)
             id_master = user.id
             a = Profile.objects.get(user_id=id_master)
-          
+            victCurrent = a.victorias
+            saldo = a.saldo
+            print("entro aqui")
+            print(victCurrent)
             posts = user.posts.all()
             equipoCompleto = extraer_de_db(a)
       
             poke_data = equipoCompleto[0]
             poke_data2 = equipoCompleto[1]
 
-
+            return render(request, 'social/profile.html',{'user':user,'posts':posts,'poke_data':poke_data,'poke_data2':poke_data2,'victCurrent':str(victCurrent),'saldo':"privado"})
         else:
             
             posts = current_user.posts.all()
@@ -76,9 +84,11 @@ def profile(request, username=None):
             equipoCompleto = extraer_de_db(query)
             poke_data = equipoCompleto[0]
             poke_data2 = equipoCompleto[1]
-
+            victCurrent = query.victorias
+            saldo = query.saldo
+            
         
-        return render(request, 'social/profile.html',{'user':user,'posts':posts,'poke_data':poke_data,'poke_data2':poke_data2})
+        return render(request, 'social/profile.html',{'user':user,'posts':posts,'poke_data':poke_data,'poke_data2':poke_data2,'victCurrent':str(victCurrent),'saldo':str(saldo)})
 
 
 def index(request):
@@ -178,18 +188,176 @@ def batalla(request,pk):
     
     
     query = Profile.objects.get(user=request.user)
-    miEquipoCompleto = extraer_de_db(  query)
+    miEquipoCompleto = extraer_de_db(query)
     poke_data = miEquipoCompleto[0]
     poke_data2 = miEquipoCompleto[1]
-    print(poke_data)
     
-    
+    agua = query.agua
+    pocion = query.pocion
+    hiperPocion = query.hiperPocion
+    maxPocion = query.maxPocion
+
     context = {
         'equipoEnemigo':equipoEnemigo,
         'enemigo':enemigo,
         'poke_data':poke_data,
-        'poke_data2':poke_data2
+        'poke_data2':poke_data2,
+        'pk':pk,
+        'agua':agua,
+        'pocion':pocion,
+        'hiperPocion':hiperPocion,
+        'maxPocion':maxPocion
     }
     
     return render(request, 'social/batalla.html',context)
+
+def finalView(request,pk,wl):
+    perfilMio = Profile.objects.get(user=request.user)
+    perfilMio.agua
+    if(wl == 0):
+        print("perdiste nub")
+    else:
+        
+        victorias = perfilMio.victorias
+        saldo = perfilMio.saldo
+        perfilMio.victorias = victorias + 1
+
+        listaPremiosFacil = [1,1,1,1,1,1,1,1,1,1,
+                        6,6,6,6,6,6,6,6,6,6,
+                        2,2,2,2,2,2,2,6,6,6,
+                        6,6,6,6,6,4,4,4,5,6,
+                        6,6,6,6,6,6,6,6,6,6,
+                        6,6,6,6,6,6,6,6,6,6,
+                        6,6,6,6,6,6,6,6,6,6,
+                        6,6,6,6,6,6,6,6,6,6,
+                        6,6,6,6,6,6,6,6,6,6,
+                        6,6,6,6,6,6,6,6,6,6]
+
+        listaPremiosMedio = [
+                        1,1,1,1,1,1,1,1,1,1,
+                        1,1,1,1,1,6,6,6,6,6,
+                        2,2,2,2,2,2,2,2,2,2,
+                        2,2,2,2,6,4,4,4,5,5,
+                        4,4,4,6,6,6,6,6,6,6,
+                        6,6,6,6,6,6,6,6,6,6,
+                        6,6,6,6,6,6,6,6,6,6,
+                        6,6,6,6,6,6,6,6,6,6,
+                        6,6,6,6,6,6,6,6,6,6,
+                        6,6,6,6,6,6,6,6,6,6]
+
+        listaPremiosDificil = [
+                        1,1,1,1,1,1,1,1,1,1,
+                        1,1,1,1,1,1,1,1,1,1,
+                        2,2,2,2,2,2,2,2,2,2,
+                        2,2,2,2,2,4,4,4,5,5,
+                        4,4,4,4,4,4,5,5,6,6,
+                        2,2,2,2,6,6,6,6,6,6,
+                        6,6,6,6,6,6,6,6,6,6,
+                        6,6,6,6,6,6,6,6,6,6,
+                        6,6,6,6,6,6,6,6,6,6,
+                        6,6,6,6,6,6,6,6,6,6]
+
+
+        imagenPremio = ""
+        nombrePremio = ""
+
+        if ((pk >= 10) and (pk <= 17)):
+            numeroPremio = "1"
+            perfilMio.saldo = saldo + 1
+            premio = random.choice(listaPremiosFacil)
+            if (premio == 1):
+                perfilMio.agua = (perfilMio.agua + 1)
+                perfilMio.save()
+                imagenPremio = "fresh_water.png"
+                nombrePremio = "Agua fresca"
+            elif(premio ==2):
+                perfilMio.pocion = (perfilMio.pocion + 1)
+                perfilMio.save()
+                imagenPremio = "super_potion.png"
+                nombrePremio = "Pocion"
+            elif(premio ==3):
+                perfilMio.HiperPocion = (perfilMio.pocion + 1)
+                perfilMio.save()
+                imagenPremio = "hyper_potion.png"
+                nombrePremio = "Hiper Pocion"
+            elif(premio ==4):
+                perfilMio.MaxPocion = (perfilMio.pocion + 1)
+                perfilMio.save()
+                imagenPremio = "max_potion.png"
+                nombrePremio = "Maxima pocion"
+            else:
+                perfilMio.save()
+            
+
+            context = {
+                'imagenPremio':imagenPremio,
+                'nombrePremio':nombrePremio,
+                'numeroPremio':numeroPremio}
+        elif((pk >= 1) and (pk <= 9)):
+            numeroPremio = "5"
+            perfilMio.saldo = saldo + 5
+            premio = random.choice(listaPremiosMedio)
+            if (premio == 1):
+                perfilMio.agua = (perfilMio.agua + 1)
+                perfilMio.save()
+                imagenPremio = "fresh_water.png"
+                nombrePremio = "Agua fresca"
+            elif(premio ==2):
+                perfilMio.pocion = (perfilMio.pocion + 1)
+                perfilMio.save()
+                imagenPremio = "super_potion.png"
+                nombrePremio = "Pocion"
+            elif(premio ==3):
+                perfilMio.HiperPocion = (perfilMio.pocion + 1)
+                perfilMio.save()
+                imagenPremio = "hyper_potion.png"
+                nombrePremio = "Hiper Pocion"
+            elif(premio ==4):
+                perfilMio.MaxPocion = (perfilMio.pocion + 1)
+                perfilMio.save()
+                imagenPremio = "max_potion.png"
+                nombrePremio = "Maxima pocion"
+            else:
+                perfilMio.save()
+            print(premio)
+
+            context = {
+                'imagenPremio':imagenPremio,
+                'nombrePremio':nombrePremio,
+                'numeroPremio':numeroPremio}
+        else:
+            numeroPremio = "10"
+            perfilMio.saldo = saldo + 10
+            premio = random.choice(listaPremiosDificil)
+            if (premio == 1):
+                perfilMio.agua = (perfilMio.agua + 1)
+                perfilMio.save()
+                imagenPremio = "fresh_water.png"
+                nombrePremio = "Agua fresca"
+            elif(premio ==2):
+                perfilMio.pocion = (perfilMio.pocion + 1)
+                perfilMio.save()
+                imagenPremio = "super_potion.png"
+                nombrePremio = "Pocion"
+            elif(premio ==3):
+                perfilMio.HiperPocion = (perfilMio.pocion + 1)
+                perfilMio.save()
+                imagenPremio = "hyper_potion.png"
+                nombrePremio = "Hiper Pocion"
+            elif(premio ==4):
+                perfilMio.MaxPocion = (perfilMio.pocion + 1)
+                perfilMio.save()
+                imagenPremio = "max_potion.png"
+                nombrePremio = "Maxima pocion"
+            else:
+                perfilMio.save()
+            print(premio)
+
+            context = {
+                'imagenPremio':imagenPremio,
+                'nombrePremio':nombrePremio,
+                'numeroPremio':numeroPremio}
+        
+
+    return render(request,'social/letreroFinal.html',context)
 
