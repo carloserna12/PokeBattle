@@ -17,6 +17,7 @@ urlpatterns = [
     path('combates/',views.selectCombat, name='combates'),
     path('combates/<int:pk>/',views.batalla),
     path('combates/<int:pk>/<int:wl>/<int:a>/<int:p>/<int:h>/<int:m>',views.finalView),
-    
+    path('tienda/',views.tienda,name='tienda'),
+    path('tienda/<int:a>/<int:p>/<int:h>/<int:m>/<int:honor>/<int:saldo>/<int:c>',views.CompraConfirmada),    
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

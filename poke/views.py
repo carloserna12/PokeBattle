@@ -27,7 +27,7 @@ def register(request):
             form.save()
             username = form.cleaned_data['username']
             messages.success(request, f'Usuario {username} creado')
-            return redirect('feed')
+            return redirect('login')
     else:
         form = UserRegisterForm()
 
@@ -390,3 +390,48 @@ def finalView(request,pk,wl,a,p,h,m):
 
     return render(request,'social/letreroFinal.html',context)
 
+def tienda(request):
+    perfil = Profile.objects.get(user=request.user)
+    print(perfil.user)
+    context = {'perfil':perfil}
+    
+    return render(request,'social/tienda.html',context)
+
+def CompraConfirmada(request,a,p,h,m,honor,saldo,c):
+    perfilMio = Profile.objects.get(user=request.user)
+    aguaInventario = perfilMio.agua
+    pocionInventario = perfilMio.pocion
+    hiperInventario = perfilMio.hiperPocion
+    maxInventario = perfilMio.maxPocion
+    honorInventario = perfilMio.honor
+    
+    perfilMio.agua = a + aguaInventario
+    perfilMio.pocion = p + pocionInventario
+    perfilMio.hiperPocion = h + hiperInventario
+    perfilMio.maxPocion = m + maxInventario
+
+    calcuHonor = isCero(honor,honorInventario)
+
+    perfilMio.honor =  calcuHonor
+    perfilMio.saldo = saldo
+    perfilMio.save()
+
+    context = {
+        'a':a,
+        'p':p,
+        'h':h,
+        'm':m,
+        'honor':honor,
+        'saldo':saldo,
+        'c':c
+    }
+    
+    return render(request,'social/compraConfirmada.html',context)
+
+
+def isCero (num,inv):
+    if(num == 0):
+        return 0
+    else:
+        resta = inv - num
+        return resta

@@ -1,0 +1,63 @@
+{% extends 'social/layout.html'%}
+{% load static %}
+{% block content %}
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'tien.js' %}"  defer></script>
+<link href="{% static '/styles.css' %}" rel="stylesheet" />
+{% if perfil %}
+
+{{perfil.user}}
+<img src="/media/perla.png"><div id="saldo">{{perfil.saldo}}</div>
+<img src="/media/perla.png"><div id="honor">{{perfil.honor}}</div>
+
+<div>
+    <img src="/media/fresh_water.png">
+    <input id="agua" type="number" min="0" value=0 style="width: auto;">
+    <button id="buyAgua">agregar al carrito</button>
+    
+</div>
+<div>
+    <img src="/media/super_potion.png">
+    <input id="pocion" type="number" min="0" value=0 style="width: auto;">
+    <button id="buyPocion">agregar al carrito</button>
+</div>
+<div>
+    <img src="/media/hyper_potion.png">
+    <input id="hiperPocion" type="number" min="0" value=0 style="width: auto;">
+    <button id="buyHiper">agregar al carrito</button>
+</div>
+<div>
+    <img src="/media/max_potion.png">
+    <input id="maxPocion" type="number" min="0" value=0 style="width: auto;">
+    <button id="buyMax">agregar al carrito</button>
+</div>
+
+<div>
+    <img src="/media/fresh_water.png">
+    <input id="change" type="number" min="0" value=0 style="width: auto;">
+    <button id="buyChange">agregar al carrito</button>
+</div>
+
+<div id="carrito">
+    Carrito de compras
+    <img src="/media/fresh_water.png">
+    <div id="aguasCompradas">0</div>
+    <img src="/media/super_potion.png">
+    <div id="pocionesCompradas">0</div>
+    <img src="/media/hyper_potion.png">
+    <div id="hipersCompradas">0</div>
+    <img src="/media/max_potion.png">
+    <div id="maxesCompradas">0</div>
+    <img src="/media/fresh_water.png">
+    <div id="changesCompradas">0</div>
+</div>
+
+
+
+
+
+<div><a id="link" class="row" style="display: block;" href="{{perfil.agua}}/{{ perfil.pocion }}/{{perfil.hiperPocion }}/{{ perfil.maxPocion }}/{{ perfil.honor}}/{{perfil.saldo}}/0">Comprar</a> 
+    
+</div>
+{% endif %}
+{% endblock %}
