@@ -200,7 +200,7 @@ def batalla(request,pk):
     hiperPocion = query.hiperPocion
     maxPocion = query.maxPocion
 
-    if((pk >= 10) and (pk <= 17)):
+    if((pk >= 10) and (pk <= 18)):
         vida = 5    
     elif((pk >= 1) and (pk <= 9)):
         vida = 7

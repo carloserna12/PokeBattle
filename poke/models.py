@@ -32,10 +32,19 @@ class Profile(models.Model):
     hiperPocion = models.IntegerField(default=0)
     maxPocion = models.IntegerField(default=0)
 
+ 
     
 
     def __str__(self) -> str:
         return f'Perfil de {self.user.username}'
+
+
+
+   
+
+
+
+
 
 
 

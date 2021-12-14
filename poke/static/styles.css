@@ -1,11 +1,18 @@
 form {
-    width: 200px;
     margin: 20px auto;
+    padding: 40px;
+    font-size: 1rem;
 }
 
 input {
     width: 100%;
-    padding: 10px;
+    border: 0;
+    border-bottom: 2px solid #D3D8DC;
+    outline: 0;
+    background: #fff;
+    padding: 20px 0 4px;
+    margin: 0 0 20px;
+    color: #777B7E;
 }
 
 .poke-card {
@@ -18,9 +25,9 @@ input {
     color: #000;
     text-align: center;
     padding: 10px;
-    margin: 0 auto;
-    background-color: #FFF;
-    border: 1px solid black;
+    margin: 5px;
+    background-color: rgba(255, 255, 255, 0.603);
+    border: 1px solid rgba(0, 0, 0, 0);
 }
 
 .poke-card::before {
@@ -67,18 +74,17 @@ input {
 }
 
 .poke-img {
-    width: 180px;
+    width: 90px;
     border-radius: 50%;
 
     
 }
 
 #contenedor {
-    display: table;
-    border: 2px solid #000;
-
-    text-align: center;
-    margin: 0 auto;
+  display: table;
+  border: 2px solid #fff0;
+  text-align: center;
+  margin: 0 auto;
 }
 #contenidos {
     display: table-row;
@@ -159,19 +165,30 @@ td, th {
 
 
 
-
+label{
+  color: white;
+}
 
 body{
-	background: #2F4F4F;
+  background-image: url('/media/fondo\(1\).webp');
+	background-size: cover;
+  background-repeat: no-repeat;
+
+ 
+  
+
 	font-size: 62.5%;
 	font-family: 'Varela Round', Helvetica, Arial, serif;
 }
+
+
 /* Global Styles*/
 
 
 h5{
 	font-size: 1rem;
 	margin-bottom: 0;
+  color: #D3D8DC;
 
 }
 
@@ -203,9 +220,12 @@ nav.main{
 nav.main ul{
 	display: flex;
 	flex: 1 1 40rem;
-	justify-content: space-around;
+	justify-content: right;
 	align-items: center;
 	list-style: none;
+  flex-direction: row-reverse;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #logo{
@@ -213,16 +233,18 @@ nav.main ul{
 }
 
 /* -----*/
-
+ul{
+  display: flex;
+}
 a{
 	font-size: .93rem;
 	text-decoration: none;
-	color: black;
+	color: rgb(250, 250, 250);
 }
 
 
 .main{
-	background: white;
+  background-color: rgba(63, 63, 63, 0.918);
   width:60%;
 	margin: 5% auto;
 	border-radius: 4px;
@@ -257,7 +279,7 @@ a{
 	flex: 6 1 5rem;
 	text-align: right;
 	text-transform: uppercase;
-  	color: #7A9D96;
+  	color: #ffffff;
 }
 
 .second-nav .new:hover{
@@ -270,7 +292,7 @@ article{
 	width: 93%;
 	margin: auto;
 	padding: 40px 0;
-	border-bottom: 2px solid #0c1f29;
+	border-bottom: 2px solid #ffffff;
 }
 
 .article2{
@@ -331,8 +353,14 @@ time {
 .profile h2{
 	margin-top: -10px;
 	font-size: 1.3rem;
+  color: #D3D8DC;
 }
 
+.puntaje {
+  padding: 10px auto;
+  color: white;
+  font-size: large;
+}
 /* Followers / Following / Post */
 .follow{
 	display: flex;
@@ -346,21 +374,7 @@ time {
 
 
 /*Form Elements*/
-form {
-    margin: 0;
-    padding: 40px;
-    font-size: 1rem;
-}
-input {
-  width: 100%;
-  border: 0;
-  border-bottom: 2px solid #D3D8DC;
-  outline: 0;
-  background: #fff;
-  padding: 20px 0 4px;
-  margin: 0 0 20px;
-  color: #777B7E;
-}
+
 input:focus {
   border-color: #7A9D96;
   color: #2C3238;
@@ -383,7 +397,7 @@ button#submit {
   width: 100%;
   padding: 20px 0;
   text-align: center;
-  background: #7A9D96;
+  background: #4dace4;
   color: #fff;
   border: 0;
   border-radius: 4px;
