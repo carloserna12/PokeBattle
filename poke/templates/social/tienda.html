@@ -2,62 +2,117 @@
 {% load static %}
 {% block content %}
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="{% static 'tien.js' %}"  defer></script>
-<link href="{% static '/styles.css' %}" rel="stylesheet" />
+<script type="text/javascript" src="{% static 'tien.js' %}" defer></script>
+
 {% if perfil %}
 
-{{perfil.user}}
-<img src="/media/perla.png"><div id="saldo">{{perfil.saldo}}</div>
-<img src="/media/perla.png"><div id="honor">{{perfil.honor}}</div>
-
-<div>
-    <img src="/media/fresh_water.png">
-    <input id="agua" type="number" min="0" value=0 >
-    <button id="buyAgua">agregar al carrito</button>
-    
-</div>
-<div>
-    <img src="/media/super_potion.png">
-    <input id="pocion" type="number" min="0" value=0 >
-    <button id="buyPocion">agregar al carrito</button>
-</div>
-<div>
-    <img src="/media/hyper_potion.png">
-    <input id="hiperPocion" type="number" min="0" value=0 >
-    <button id="buyHiper">agregar al carrito</button>
-</div>
-<div>
-    <img src="/media/max_potion.png">
-    <input id="maxPocion" type="number" min="0" value=0 >
-    <button id="buyMax">agregar al carrito</button>
+<div class="panel_saldos">
+    <div id="nombre_perfil">{{perfil.user}}</div>
+    <div id="saldo-img"><img src="/media/coincase.png"></div>
+    <div id="saldo">{{perfil.saldo}}</div>
+    <div id="honor-img"><img src="/media/magmasymbol.gif"></div>
+    <div id="honor">{{perfil.honor}}</div>
 </div>
 
-<div>
-    <img src="/media/fresh_water.png">
-    <input id="change" type="number" min="0" value=0 >
-    <button id="buyChange">agregar al carrito</button>
+<div class="panel_saldos">
+    <div class="poke-card">
+        <img src="/media/fresh_water.png">
+        <div class="cantidad">x5<img src="/media/coincase.png"></div>
+        <div class="input-group mb-3">
+            <input id="agua" type="number" class="form-control" placeholder="" aria-label=""
+                aria-describedby="basic-addon1" min="0" value=0>
+            <div class="input-group-prepend">
+                <button id="buyAgua" class="btn btn-outline-secondary" type="button">agregar al carrito</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="poke-card">
+        <img src="/media/super_potion.png">
+        <div class="cantidad">x10<img src="/media/coincase.png"></div>
+        <div class="input-group mb-3">
+            <input id="pocion" type="number" class="form-control" placeholder="" aria-label=""
+                aria-describedby="basic-addon1" min="0" value=0>
+            <div class="input-group-prepend">
+                <button id="buyPocion" class="btn btn-outline-secondary" type="button">agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="poke-card">
+        <img src="/media/hyper_potion.png">
+        <div class="cantidad">x20<img src="/media/coincase.png"></div>
+        <div class="input-group mb-3">
+            <input id="hiperPocion" type="number" class="form-control" placeholder="" aria-label=""
+                aria-describedby="basic-addon1" min="0" value=0>
+            <div class="input-group-prepend">
+                <button id="buyHiper" class="btn btn-outline-secondary" type="button">agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="poke-card">
+        <img src="/media/max_potion.png">
+        <div class="cantidad">x30<img src="/media/coincase.png"></div>
+        <div class="input-group mb-3">
+            <input id="maxPocion" type="number" class="form-control" placeholder="" aria-label=""
+                aria-describedby="basic-addon1" min="0" value=0>
+            <div class="input-group-prepend">
+                <button id="buyMax" class="btn btn-outline-secondary" type="button">agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="poke-card">
+        <img src="/media/cardkey.png">
+        <div class="cantidad">x10<img src="/media/magmasymbol.gif"></div>
+        <div class="input-group mb-3">
+            <input id="change" type="number" class="form-control" placeholder="" aria-label=""
+                aria-describedby="basic-addon1" min="0" value=0>
+            <div class="input-group-prepend">
+                <button id="buyChange" class="btn btn-outline-secondary" type="button">agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="carrito" class="panel_saldos" style="justify-content: left;">
+    <div class="panel_saldos" style="margin-block: 20px;">Carrito de compras</div>
+    <div class="panel_saldos">
+
+        <div class="poke-card" style="justify-content: center; display: flex; color:white;font-weight: bold;"><img
+                src="/media/fresh_water.png">x<div id="aguasCompradas">0</div>
+        </div>
+
+        <div class="poke-card" style="justify-content: center; display: flex; color:white;font-weight: bold;"><img
+                src="/media/super_potion.png">
+            x<div id="pocionesCompradas">0</div>
+        </div>
+        <div class="poke-card" style="justify-content: center; display: flex; color:white;font-weight: bold;"><img
+                src="/media/hyper_potion.png">
+            x<div id="hipersCompradas">0</div>
+        </div>
+        <div class="poke-card" style="justify-content: center; display: flex; color:white;font-weight: bold;"><img
+                src="/media/max_potion.png">
+            x<div id="maxesCompradas">0</div>
+        </div>
+        <div class="poke-card" style="justify-content: center; display: flex; color:white;font-weight: bold;"><img
+                src="/media/fresh_water.png">
+            x<div id="changesCompradas">0</div>
+        </div>
+
+        <button type="button" class="btn btn-outline-light" style="width: 100px;
+        height: 60px;"><a id="link" class="row" style="display: block;"
+            href="{{perfil.agua}}/{{ perfil.pocion }}/{{perfil.hiperPocion }}/{{ perfil.maxPocion }}/{{ perfil.honor}}/{{perfil.saldo}}/0">Comprar</a></button>
+        
+    </div>
 </div>
 
-<div id="carrito">
-    Carrito de compras
-    <img src="/media/fresh_water.png">
-    <div id="aguasCompradas">0</div>
-    <img src="/media/super_potion.png">
-    <div id="pocionesCompradas">0</div>
-    <img src="/media/hyper_potion.png">
-    <div id="hipersCompradas">0</div>
-    <img src="/media/max_potion.png">
-    <div id="maxesCompradas">0</div>
-    <img src="/media/fresh_water.png">
-    <div id="changesCompradas">0</div>
-</div>
 
 
 
 
 
-<div><a id="link" class="row" style="display: block;" href="{{perfil.agua}}/{{ perfil.pocion }}/{{perfil.hiperPocion }}/{{ perfil.maxPocion }}/{{ perfil.honor}}/{{perfil.saldo}}/0">Comprar</a> 
-    
-</div>
 {% endif %}
 {% endblock %}

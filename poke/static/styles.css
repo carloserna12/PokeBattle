@@ -146,7 +146,7 @@ table , td, th {
 	border-collapse: collapse;
 }
 td, th {
-	padding: 3px;
+	padding: 30px;
 	width: 30px;
 	height: 25px;
     
@@ -231,10 +231,67 @@ nav.main ul{
 #logo{
 	flex: 2 1 40rem;
 }
+.equip{
+  padding-top: 3%;
+}
+/*---- TIENDA STYLE------*/
+.panel_saldos{
+  display: flex;
+  color: white;
+  font-size: 20px;
+  margin: 1%;
+  border: groove;
+  border-radius: 19px;
+  justify-content: center;
+  border-color: #05fbfb00;
+}
+
+.cantidad{
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+}
+
+#saldo{
+  margin-block: 10px;
+  padding-right: 10px;
+  justify-content: center;
+  display: flex;
+}
+
+#honor{
+  margin-block: 10px;
+  padding-right: 10px;
+  justify-content: center;
+  display: flex;
+}
+#saldo-img{
+  margin-block: 10px;
+  padding-right: 10px;
+  justify-content: center;
+  display: flex;
+}
+
+#honor-img{
+  margin-block: 10px;
+  padding-right: 10px;
+  justify-content: center;
+  display: flex;
+}
+
+#nombre_perfil{
+  margin-block: 10px;
+  padding-right: 10px;
+  justify-content: center;
+  display: flex;
+}
+
 
 /* -----*/
 ul{
   display: flex;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 a{
 	font-size: .93rem;
@@ -245,7 +302,7 @@ a{
 
 .main{
   background-color: rgba(63, 63, 63, 0.918);
-  width:60%;
+  width:70%;
 	margin: 5% auto;
 	border-radius: 4px;
 	padding-bottom: 20px;
@@ -299,8 +356,11 @@ article{
 	width: 250px;
 	padding: 40px 0;
   border-radius: 10%;
-	border: 2px solid #009aec;
-  
+	border: 2px solid #c7c7c700;
+  background-color: #ffffff91;
+display: flex;
+align-content: center;
+padding-left: 15px;
 }
 
 .username{
@@ -495,9 +555,117 @@ img.profile{
 
 #FA1{
   position: relative;
+  right: 150px;
 }
 
 #FE1{
   position: relative;
   left: 250px;
+}
+
+#FA2{
+  position: relative;
+  right: 150px;
+}
+
+#FE2{
+  position: relative;
+  left: 250px;
+}
+
+#FA3{
+  position: relative;right: 150px;
+}
+
+#FE3{
+  position: relative;
+  left: 250px;
+}
+
+#FA4{
+  position: relative;right: 150px;
+}
+
+#FE4{
+  position: relative;
+  left: 250px;
+}
+
+#FA5{
+  position: relative;right: 150px;
+}
+
+#FE5{
+  position: relative;
+  left: 250px;
+}
+
+#FA6{
+  position: relative;right: 150px;
+}
+
+#FE6{
+  position: relative;
+  left: 250px;
+}
+
+
+.pokeRestE{
+  display: flex;
+  color: black;
+  position: relative;
+  justify-content: center;
+  width: 540px;
+  top: 60px;
+}
+
+.pokeLife{
+  display: flex;
+  color: black;
+  position: relative;
+  width: 450px;
+}
+
+.fondobatalla{
+  background-image:url('/media/pokekhe.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 476px;
+}
+
+
+.pokeRestA{
+  display: flex;
+  color: black;
+  position: relative;
+  justify-content: right;
+  top: 40px;
+  width: 730px;
+}
+
+.slotAtack1{
+  display: flex;
+  justify-content: left;
+  width: 600px;
+  position: relative;
+
+}
+
+#skill1{
+  font-size: 1rem;
+  color: white;
+  padding: 0.4rem 1.4rem;
+  border: none;
+  background: #52716A82;
+  border-radius: 4px;
+}
+
+#skill2{
+  font-size: 1rem;
+  color: white;
+  padding: 0.4rem 1.4rem;
+  border: none;
+  background: #5C8784;
+  border-radius: 4px;
 }
