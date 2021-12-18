@@ -46,7 +46,6 @@
 
         <div id="skills">
 
-
             <div class="slotAtack1">
                 <div style="margin: 10px;"><button id="skill1" class="row"
                     onclick="hola(
@@ -61,10 +60,8 @@
                 </button>
             </div>
             </div>
-
             <div class="slotAtack1">
-            <div style="margin: 10px;">
-                <button id="skill3" class="row"
+            <div style="margin: 10px;"><button id="skill3" class="row"
                     onclick="hola(
     '{{poke_data.0.mov3.name}}','{{poke_data.0.mov3.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.0.name}}','{{equipoEnemigo.0.name}}','{{poke_data.0.types}}','{{equipoEnemigo.0.types}}',result)">
                     {{poke_data.0.mov3.name}}-{{poke_data.0.mov3.type}}
@@ -77,9 +74,7 @@
                     {{poke_data.0.mov4.name}}-{{poke_data.0.mov4.type}}
                 </button>
             </div>
-
         </div>
-
         </div>
     </div>
 
@@ -87,38 +82,43 @@
 
 
     <div id="pk2-img" style="display: none;">
+
         <div id="aVida2">5</div>
 
 
         <img id=FA2  src="{{poke_data.1.sprites}}">
 
         <div id="skills2">
-            <div>
 
-                <button id="skill1_2" class="row"
+            <div class="slotAtack1">
+                <div style="margin: 10px;"><button id="skill1_2" class="row"
                     onclick="hola(
     '{{poke_data.1.mov1.name}}','{{poke_data.1.mov1.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.1.name}}','{{equipoEnemigo.0.name}}','{{poke_data.1.types}}','{{equipoEnemigo.0.types}}',result)">
                     {{poke_data.1.mov1.name}}-{{poke_data.1.mov1.type}}
                 </button>
-
-                <button id="skill2_2" class="row"
+                </div>
+                <div style="margin: 10px;padding-left: 2%;"><button id="skill2_2" class="row"
                     onclick="hola(
     '{{poke_data.1.mov2.name}}','{{poke_data.1.mov2.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.1.name}}','{{equipoEnemigo.0.name}}','{{poke_data.1.types}}','{{equipoEnemigo.0.types}}',result)">
                     {{poke_data.1.mov2.name}}-{{poke_data.1.mov2.type}}
                 </button>
             </div>
-            <div>
-                <button id="skill3_2" class="row"
+            </div>
+            <div class="slotAtack1">
+                <div style="margin: 10px;"><button id="skill3_2" class="row"
                     onclick="hola(
     '{{poke_data.1.mov3.name}}','{{poke_data.1.mov3.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.1.name}}','{{equipoEnemigo.0.name}}','{{poke_data.1.types}}','{{equipoEnemigo.0.types}}',result)">
                     {{poke_data.1.mov3.name}}-{{poke_data.1.mov3.type}}
                 </button>
+                </div>
+                <div style="margin: 10px;padding-left: 2%;">
                 <button id="skill4_2" class="row"
                     onclick="hola(
     '{{poke_data.1.mov4.name}}','{{poke_data.1.mov4.type}}','{{equipoEnemigo.0.mov1.name}}','{{equipoEnemigo.0.mov1.type}}','{{equipoEnemigo.0.mov2.name}}','{{equipoEnemigo.0.mov2.type}}','{{equipoEnemigo.0.mov3.name}}','{{equipoEnemigo.0.mov3.type}}','{{equipoEnemigo.0.mov4.name}}','{{equipoEnemigo.0.mov4.type}}','{{poke_data.1.name}}','{{equipoEnemigo.0.name}}','{{poke_data.1.types}}','{{equipoEnemigo.0.types}}',result)">
                     {{poke_data.1.mov4.name}}-{{poke_data.1.mov4.type}}
                 </button>
             </div>
+        </div>
         </div>
     </div>
 
@@ -276,28 +276,28 @@
     </div>
 </center>
 </div>
-<div id="field3" class="row" style="padding: 20px;">
+<div id="field3" class="row" style="padding: 20px;position: relative;left: 30px;">
  
 
         <div class="row" id="field1" style="display: block;">
             <div class="container-article" style="margin:auto">
                 <div id="group-btn">
-                    <button id="pk1" class="row">
+                    <button id="pk1" class="row" style="margin: 10px;">
                         <img src="{{poke_data.0.sprites}}">
                     </button>
-                    <button id="pk2" type="button">
+                    <button id="pk2" type="button" style="margin: 10px;">
                         <img src="{{poke_data.1.sprites}}">
                     </button>
-                    <button id="pk3" type="button">
+                    <button id="pk3" type="button" style="margin: 10px;">
                         <img src="{{poke_data.2.sprites}}">
                     </button>
-                    <button id="pk4" type="button">
+                    <button id="pk4" type="button" style="margin: 10px;">
                         <img src="{{poke_data2.0.sprites}}">
                     </button>
-                    <button id="pk5" type="button">
+                    <button id="pk5" type="button" style="margin: 10px;">
                         <img src="{{poke_data2.1.sprites}}">
                     </button>
-                    <button id="pk6" type="button">
+                    <button id="pk6" type="button" style="margin: 10px;">
                         <img src="{{poke_data2.2.sprites}}">
                     </button>
                 </div>
@@ -305,24 +305,28 @@
         </div>
 
         <div id="items">
-            <div id="group-item">
-                <button id="agua-img" class="row">
+            <div id="group-item" style="position: relative;bottom: 242px;left: 570px;">
+                <div>
+                <button id="agua-img" type="button" style="margin: 2px;height: 50px;">
                     <img src="/media/fresh_water.png"><div id ="agua">{{ agua }}</div>
                 </button>
-                <button id="pocion-img" type="button">
+                <button id="pocion-img" type="button"style="margin: 2px;height: 50px;">
                     <img src="/media/super_potion.png"><div id="pocion">{{ pocion }}</div>
                 </button>
-                <button id="hiper-img" type="button">
+            </div>
+            <div>
+                <button id="hiper-img" type="button"style="margin: 2px;height: 50px;">
                     <img src="/media/hyper_potion.png"><div id="hiperPocion">{{hiperPocion }}</div>
                 </button>
-                <button id="max-img" type="button">
+                <button id="max-img" type="button"style="margin: 2px;height: 50px;">
                     <img src="/media/max_potion.png"><div id="maxPocion">{{ maxPocion }}</div>
                 </button>
+            </div>
             </div>
         </div>
 
 
-<div><a id="field4" class="row" style="display: block;" href="1/{{agua}}/{{ pocion }}/{{hiperPocion }}/{{ maxPocion }}">Buena pelea -> Siguiente-></a> 
+<div><a id="field4" class="row" style="display: none;" href="1/{{agua}}/{{ pocion }}/{{hiperPocion }}/{{ maxPocion }}">Buena pelea -> Siguiente-></a> 
     
 </div>
 <div id="field5" class="row" style="display: none;">Perdiste, intenta de nuevo</div>

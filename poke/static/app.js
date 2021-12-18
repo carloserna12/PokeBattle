@@ -309,8 +309,9 @@ var hola = function(aMov1,atype1,eMov11,etype11,eMov21,etype21,eMov31,etype31,eM
             win = game(aMov1,atype1,eMov11,etype11,eMov21,etype21,eMov31,etype31,eMov41,etype41,aName1,eName1,aPkType1,ePkType1)
 
             if(win=="si"){
-                setTimeout(function(){FE1.style.display='none';},9000); 
+                setTimeout(function(){FE1.style.visibility="hidden";},9000); 
                 setTimeout(function(){vidaEnemiga.innerHTML= setVida.textContent; },11000);
+                setTimeout(function(){FE1.style.display='none';},11000); 
                 setTimeout(function(){FE2.style.display = 'block';},11000); 
                 
             }
@@ -335,8 +336,9 @@ var hola = function(aMov1,atype1,eMov11,etype11,eMov21,etype21,eMov31,etype31,eM
                 document.getElementById("field4").setAttribute("href",strLink);
             }
             if(win=="si"){
-                setTimeout(function(){FE2.style.display='none';},9000); 
+                setTimeout(function(){FE2.style.visibility="hidden";},9000); 
                 setTimeout(function(){vidaEnemiga.innerHTML= setVida.textContent; },10000);
+                setTimeout(function(){FE2.style.display='none';},11000); 
                 setTimeout(function(){FE3.style.display = 'block';},11000);  
                 
             }
@@ -360,8 +362,9 @@ var hola = function(aMov1,atype1,eMov11,etype11,eMov21,etype21,eMov31,etype31,eM
                 document.getElementById("field4").setAttribute("href",strLink);
             }
             if(win=="si"){
-                setTimeout(function(){FE3.style.display='none';},9000); 
+                setTimeout(function(){FE3.style.visibility="hidden";},9000); 
                 setTimeout(function(){vidaEnemiga.innerHTML= setVida.textContent; },10000);
+                setTimeout(function(){FE3.style.display='none';},11000); 
                 setTimeout(function(){FE4.style.display = 'block';},11000);  
                 
             }
@@ -386,8 +389,9 @@ var hola = function(aMov1,atype1,eMov11,etype11,eMov21,etype21,eMov31,etype31,eM
             }
             
             if(win=="si"){
-                setTimeout(function(){FE4.style.display='none';},9000); 
+                setTimeout(function(){FE4.style.visibility="hidden";},9000); 
                 setTimeout(function(){vidaEnemiga.innerHTML= setVida.textContent; },10000);
+                setTimeout(function(){FE4.style.display='none';},11000); 
                 setTimeout(function(){FE5.style.display = 'block';},11000);  
             }
             break;
@@ -410,8 +414,9 @@ var hola = function(aMov1,atype1,eMov11,etype11,eMov21,etype21,eMov31,etype31,eM
                 document.getElementById("field4").setAttribute("href",strLink);
             }
             if(win=="si"){
-                setTimeout(function(){FE5.style.display='none';},9000); 
+                setTimeout(function(){FE5.style.visibility="hidden";},9000); 
                 setTimeout(function(){vidaEnemiga.innerHTML= setVida.textContent; },10000);
+                setTimeout(function(){FE5.style.display='none';},11000); 
                 setTimeout(function(){FE6.style.display = 'block';},11000); 
             }
             break;
@@ -436,12 +441,13 @@ var hola = function(aMov1,atype1,eMov11,etype11,eMov21,etype21,eMov31,etype31,eM
             }
             
             if(win=="si"){
-                setTimeout(function(){FE6.style.display='none';},9000); 
+                setTimeout(function(){FE6.style.visibility="hidden";},9000); 
                 setTimeout(function(){vidaEnemiga.innerHTML= setVida.textContent; },10000);
                 setTimeout(function(){resultText.innerHTML= 'Felicidades ganaste';},11000); 
 
                 setTimeout(function(){field3.style.display = 'none';},13000);
                 setTimeout(function(){field4.style.display = 'block';},14000);
+                
 
             }
             break;

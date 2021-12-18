@@ -651,6 +651,12 @@ img.profile{
   position: relative;
 
 }
+.slotAtack2{
+  display: flex;
+  justify-content: left;
+  width: 600px;
+  position: relative;
+}
 
 #skill1{
   font-size: 1rem;
@@ -668,4 +674,133 @@ img.profile{
   border: none;
   background: #5C8784;
   border-radius: 4px;
+}
+
+#skill3{
+  font-size: 1rem;
+  color: white;
+  padding: 0.4rem 1.4rem;
+  border: none;
+  background: #52716A82;
+  border-radius: 4px;
+}
+
+#skill4{
+  font-size: 1rem;
+  color: white;
+  padding: 0.4rem 1.4rem;
+  border: none;
+  background: #5C8784;
+  border-radius: 4px;
+}
+
+#skill1_2{
+  font-size: 1rem;
+  color: white;
+  padding: 0.4rem 1.4rem;
+  border: none;
+  background: #52716A82;
+  border-radius: 4px;
+}
+
+#skill2_2{
+  font-size: 1rem;
+  color: white;
+  padding: 0.4rem 1.4rem;
+  border: none;
+  background: #5C8784;
+  border-radius: 4px;
+}
+
+#skill3_2{
+  font-size: 1rem;
+  color: white;
+  padding: 0.4rem 1.4rem;
+  border: none;
+  background: #52716A82;
+  border-radius: 4px;
+}
+
+#skill4_2{
+  font-size: 1rem;
+  color: white;
+  padding: 0.4rem 1.4rem;
+  border: none;
+  background: #5C8784;
+  border-radius: 4px;
+}
+
+#agua-img
+{
+  font-size: 1rem;
+  color: white;
+  padding: 0.4rem 1.4rem;
+  border: none;
+  background: #5C8784;
+  border-radius: 4px;
+}
+
+#pocion-img
+{
+  font-size: 1rem;
+  color: white;
+  padding: 0.4rem 1.4rem;
+  border: none;
+  background: #5C8784;
+  border-radius: 4px;
+}
+#hiper-img
+{
+  font-size: 1rem;
+  color: white;
+  padding: 0.4rem 1.4rem;
+  border: none;
+  background: #5C8784;
+  border-radius: 4px;
+}
+#max-img
+{
+  font-size: 1rem;
+  color: white;
+  padding: 0.4rem 1.4rem;
+  border: none;
+  background: #5C8784;
+  border-radius: 4px;
+}
+
+#aVida{
+  display: block;
+  top: 50px;
+  position: relative;
+  left: 200px;
+}
+#aVida2{
+  display: block;
+  top: 50px;
+  position: relative;
+  left: 200px;
+}
+#aVida3{
+  display: block;
+  top: 50px;
+  position: relative;
+  left: 200px;
+}
+#aVida4{
+  display: block;
+  top: 50px;
+  position: relative;
+  left: 200px;
+}
+#aVida5{
+  display: block;
+  top: 50px;
+  position: relative;
+  left: 200px;
+}
+#aVida6{
+  display: block;
+  top: 50px;
+  position: relative;
+  left: 200px;
 }
